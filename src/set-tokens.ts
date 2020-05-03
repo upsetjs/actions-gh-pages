@@ -71,13 +71,17 @@ export function setGithubToken(
 
   core.debug(`ref: ${ref}`);
   core.debug(`eventName: ${eventName}`);
+
   let isProhibitedBranch = false;
 
   if (eventName === 'push') {
-    isProhibitedBranch = ref.includes(`refs/heads/${publishBranch}`);
-    if (isProhibitedBranch) {
-      throw new Error(`You deploy from ${publishBranch} to ${publishBranch}`);
-    }
+    isProhibitedBranch = ref === `refs/heads/${publishBranch}`;
+  } else if (eventName === 'pull_request') {
+    isProhibitedBranch = ref.includes(`refs/pull/`);
+  }
+
+  if (isProhibitedBranch) {
+    throw new Error(`You deploy from ${publishBranch} to ${publishBranch}`);
   }
 
   if (externalRepository) {
