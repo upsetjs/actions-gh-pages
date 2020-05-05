@@ -86,7 +86,7 @@ export async function setRepo(
           '-r',
           '--ignore-unmatch',
           '--',
-          inps.RemovePathSpec
+          ...inps.RemovePathSpec.split(',')
         ]);
       }
 
