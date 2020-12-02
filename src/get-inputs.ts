@@ -1,5 +1,5 @@
 import * as core from '@actions/core';
-import {Inputs} from './interfaces';
+import { Inputs } from './interfaces';
 
 export function showInputs(inps: Inputs): void {
   let authMethod = '';
@@ -15,6 +15,7 @@ export function showInputs(inps: Inputs): void {
 [INFO] ${authMethod}: true
 [INFO] PublishBranch: ${inps.PublishBranch}
 [INFO] PublishDir: ${inps.PublishDir}
+[INFO] DestinationDir: ${inps.DestinationDir}
 [INFO] ExternalRepository: ${inps.ExternalRepository}
 [INFO] AllowEmptyCommit: ${inps.AllowEmptyCommit}
 [INFO] KeepFiles: ${inps.KeepFiles}
@@ -28,6 +29,7 @@ export function showInputs(inps: Inputs): void {
 [INFO] TagMessage: ${inps.TagMessage}
 [INFO] EnableJekyll (DisableNoJekyll): ${inps.DisableNoJekyll}
 [INFO] CNAME: ${inps.CNAME}
+[INFO] ExcludeAssets ${inps.ExcludeAssets}
 `);
 }
 
@@ -53,14 +55,12 @@ export function getInputs(): Inputs {
     PersonalToken: core.getInput('personal_token'),
     PublishBranch: core.getInput('publish_branch'),
     PublishDir: core.getInput('publish_dir'),
+    DestinationDir: core.getInput('destination_dir'),
     ExternalRepository: core.getInput('external_repository'),
-    AllowEmptyCommit:
-      (core.getInput('allow_empty_commit') || 'false').toUpperCase() === 'TRUE',
-    KeepFiles:
-      (core.getInput('keep_files') || 'false').toUpperCase() === 'TRUE',
+    AllowEmptyCommit: (core.getInput('allow_empty_commit') || 'false').toUpperCase() === 'TRUE',
+    KeepFiles: (core.getInput('keep_files') || 'false').toUpperCase() === 'TRUE',
+    ForceOrphan: (core.getInput('force_orphan') || 'false').toUpperCase() === 'TRUE',
     RemovePathSpec: core.getInput('remove_path_spec'),
-    ForceOrphan:
-      (core.getInput('force_orphan') || 'false').toUpperCase() === 'TRUE',
     UserName: core.getInput('user_name'),
     UserEmail: core.getInput('user_email'),
     CommitMessage: core.getInput('commit_message'),
@@ -68,7 +68,8 @@ export function getInputs(): Inputs {
     TagName: core.getInput('tag_name'),
     TagMessage: core.getInput('tag_message'),
     DisableNoJekyll: useBuiltinJekyll,
-    CNAME: core.getInput('cname')
+    CNAME: core.getInput('cname'),
+    ExcludeAssets: core.getInput('exclude_assets')
   };
 
   return inps;

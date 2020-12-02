@@ -4,15 +4,14 @@ import * as github from '@actions/github';
 import * as io from '@actions/io';
 import path from 'path';
 import fs from 'fs';
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const cpSpawnSync = require('child_process').spawnSync;
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const cpexec = require('child_process').execFileSync;
 import {Inputs} from './interfaces';
 import {getHomeDir} from './utils';
 
-export async function setSSHKey(
-  inps: Inputs,
-  publishRepo: string
-): Promise<string> {
+export async function setSSHKey(inps: Inputs, publishRepo: string): Promise<string> {
   core.info('[INFO] setup SSH deploy key');
 
   const homeDir = await getHomeDir();
@@ -47,6 +46,11 @@ Host github
   await exec.exec('chmod', ['600', sshConfigPath]);
 
   if (process.platform === 'win32') {
+    core.warning(`\
+Currently, the deploy_key option is not supported on the windows-latest.
+Watch https://github.com/peaceiris/actions-gh-pages/issues/87
+`);
+
     await cpSpawnSync('Start-Process', ['powershell.exe', '-Verb', 'runas']);
     await cpSpawnSync('sh', ['-c', '\'eval "$(ssh-agent)"\''], {shell: true});
     await exec.exec('sc', ['config', 'ssh-agent', 'start=auto']);
@@ -73,35 +77,32 @@ export function setGithubToken(
   core.debug(`eventName: ${eventName}`);
   let isProhibitedBranch = false;
 
-  if (eventName === 'push') {
-    isProhibitedBranch = ref.includes(`refs/heads/${publishBranch}`);
-    if (isProhibitedBranch) {
-      throw new Error(`You deploy from ${publishBranch} to ${publishBranch}`);
-    }
+  if (externalRepository) {
+    throw new Error(`\
+The generated GITHUB_TOKEN (github_token) does not support to push to an external repository.
+Use deploy_key or personal_token.
+`);
   }
 
-  if (externalRepository) {
-    throw new Error(
-      'GITHUB_TOKEN does not support to push to an external repository'
-    );
+  if (eventName === 'push') {
+    isProhibitedBranch = ref.match(new RegExp(`^refs/heads/${publishBranch}$`)) !== null;
+    if (isProhibitedBranch) {
+      throw new Error(`\
+You deploy from ${publishBranch} to ${publishBranch}
+This operation is prohibited to protect your contents
+`);
+    }
   }
 
   return `https://x-access-token:${githubToken}@github.com/${publishRepo}.git`;
 }
 
-export function setPersonalToken(
-  personalToken: string,
-  publishRepo: string
-): string {
+export function setPersonalToken(personalToken: string, publishRepo: string): string {
   core.info('[INFO] setup personal access token');
   return `https://x-access-token:${personalToken}@github.com/${publishRepo}.git`;
 }
 
-export function getPublishRepo(
-  externalRepository: string,
-  owner: string,
-  repo: string
-): string {
+export function getPublishRepo(externalRepository: string, owner: string, repo: string): string {
   if (externalRepository) {
     return externalRepository;
   }

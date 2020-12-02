@@ -1,12 +1,27 @@
 import {
+  copyAssets,
+  setRepo,
   getUserName,
   getUserEmail,
   setCommitAuthor,
   getCommitMessage
 } from '../src/git-utils';
-import {getWorkDirName, createWorkDir} from '../src/utils';
+import {getInputs} from '../src/get-inputs';
+import {Inputs} from '../src/interfaces';
+import {getWorkDirName, createDir} from '../src/utils';
 import {CmdResult} from '../src/interfaces';
 import * as exec from '@actions/exec';
+import {cp, rm} from 'shelljs';
+import path from 'path';
+import fs from 'fs';
+
+const testRoot = path.resolve(__dirname);
+
+async function createTestDir(name: string): Promise<string> {
+  const date = new Date();
+  const unixTime = date.getTime();
+  return await getWorkDirName(`${unixTime}_${name}`);
+}
 
 beforeEach(() => {
   jest.resetModules();
@@ -17,6 +32,126 @@ beforeEach(() => {
 afterEach(() => {
   delete process.env['GITHUB_ACTOR'];
   delete process.env['GITHUB_REPOSITORY'];
+});
+
+describe('copyAssets', () => {
+  let gitTempDir = '';
+  (async (): Promise<void> => {
+    const date = new Date();
+    const unixTime = date.getTime();
+    gitTempDir = await getWorkDirName(`${unixTime}_git`);
+  })();
+
+  beforeAll(async () => {
+    await createDir(gitTempDir);
+    process.chdir(gitTempDir);
+    await exec.exec('git', ['init']);
+  });
+
+  test('copy assets from publish_dir to root, delete .github', async () => {
+    const publishDir = await createTestDir('src');
+    const destDir = await createTestDir('dst');
+    cp('-Rf', path.resolve(testRoot, 'fixtures/publish_dir_1'), publishDir);
+    cp('-Rf', gitTempDir, destDir);
+
+    await copyAssets(publishDir, destDir, '.github');
+    expect(fs.existsSync(path.resolve(destDir, '.github'))).toBeFalsy();
+    expect(fs.existsSync(path.resolve(destDir, 'index.html'))).toBeTruthy();
+    expect(fs.existsSync(path.resolve(destDir, 'assets/lib.css'))).toBeTruthy();
+    rm('-rf', publishDir, destDir);
+  });
+
+  test('copy assets from publish_dir to root, delete .github,main.js', async () => {
+    const publishDir = await createTestDir('src');
+    const destDir = await createTestDir('dst');
+    cp('-Rf', path.resolve(testRoot, 'fixtures/publish_dir_1'), publishDir);
+    cp('-Rf', gitTempDir, destDir);
+
+    await copyAssets(publishDir, destDir, '.github,main.js');
+    expect(fs.existsSync(path.resolve(destDir, '.github'))).toBeFalsy();
+    expect(fs.existsSync(path.resolve(destDir, 'index.html'))).toBeTruthy();
+    expect(fs.existsSync(path.resolve(destDir, 'main.js'))).toBeFalsy();
+    expect(fs.existsSync(path.resolve(destDir, 'assets/lib.css'))).toBeTruthy();
+    expect(fs.existsSync(path.resolve(destDir, 'assets/lib.js'))).toBeTruthy();
+    rm('-rf', publishDir, destDir);
+  });
+
+  test('copy assets from publish_dir to root, delete nothing', async () => {
+    const publishDir = await createTestDir('src');
+    const destDir = await createTestDir('dst');
+    cp('-Rf', path.resolve(testRoot, 'fixtures/publish_dir_root'), publishDir);
+    cp('-Rf', gitTempDir, destDir);
+
+    await copyAssets(publishDir, destDir, '');
+    expect(fs.existsSync(path.resolve(destDir, '.github'))).toBeTruthy();
+    expect(fs.existsSync(path.resolve(destDir, 'index.html'))).toBeTruthy();
+    expect(fs.existsSync(path.resolve(destDir, 'main.js'))).toBeTruthy();
+    expect(fs.existsSync(path.resolve(destDir, 'assets/lib.css'))).toBeTruthy();
+    expect(fs.existsSync(path.resolve(destDir, 'assets/lib.js'))).toBeTruthy();
+    rm('-rf', publishDir, destDir);
+  });
+
+  test('copy assets from root to root, delete .github', async () => {
+    const publishDir = await createTestDir('src');
+    const destDir = await createTestDir('dst');
+    cp('-Rf', path.resolve(testRoot, 'fixtures/publish_dir_root'), publishDir);
+    cp('-Rf', gitTempDir, destDir);
+    cp('-Rf', gitTempDir, publishDir);
+
+    await copyAssets(publishDir, destDir, '.github');
+    expect(fs.existsSync(path.resolve(destDir, '.github'))).toBeFalsy();
+    expect(fs.existsSync(path.resolve(destDir, 'index.html'))).toBeTruthy();
+    expect(fs.existsSync(path.resolve(destDir, 'assets/lib.css'))).toBeTruthy();
+    rm('-rf', publishDir, destDir);
+  });
+
+  test('copy assets from root to root, delete nothing', async () => {
+    const publishDir = await createTestDir('src');
+    const destDir = await createTestDir('dst');
+    cp('-Rf', path.resolve(testRoot, 'fixtures/publish_dir_root'), publishDir);
+    cp('-Rf', gitTempDir, destDir);
+    cp('-Rf', gitTempDir, publishDir);
+
+    await copyAssets(publishDir, destDir, '');
+    expect(fs.existsSync(path.resolve(destDir, '.github'))).toBeTruthy();
+    expect(fs.existsSync(path.resolve(destDir, 'index.html'))).toBeTruthy();
+    expect(fs.existsSync(path.resolve(destDir, 'assets/lib.css'))).toBeTruthy();
+    rm('-rf', publishDir, destDir);
+  });
+
+  test.todo('copy assets from root to subdir, delete .github');
+  test.todo('copy assets from root to subdir, delete .github,main.js');
+  test.todo('copy assets from root to subdir, delete nothing');
+});
+
+describe('setRepo()', () => {
+  test('throw error destination_dir should be a relative path', async () => {
+    process.env['INPUT_GITHUB_TOKEN'] = 'test_github_token';
+    process.env['INPUT_PUBLISH_BRANCH'] = 'gh-pages';
+    process.env['INPUT_PUBLISH_DIR'] = 'public';
+    process.env['INPUT_DESTINATION_DIR'] = '/subdir';
+    // process.env['INPUT_EXTERNAL_REPOSITORY'] = 'user/repo';
+    // process.env['INPUT_ALLOW_EMPTY_COMMIT'] = 'true';
+    // process.env['INPUT_KEEP_FILES'] = 'true';
+    // process.env['INPUT_FORCE_ORPHAN'] = 'true';
+    // process.env['INPUT_USER_NAME'] = 'username';
+    // process.env['INPUT_USER_EMAIL'] = 'github@github.com';
+    // process.env['INPUT_COMMIT_MESSAGE'] = 'feat: Add new feature';
+    // process.env['INPUT_FULL_COMMIT_MESSAGE'] = 'feat: Add new feature';
+    // process.env['INPUT_TAG_NAME'] = 'deploy-v1.2.3';
+    // process.env['INPUT_TAG_MESSAGE'] = 'Deployment v1.2.3';
+    // process.env['INPUT_DISABLE_NOJEKYLL'] = 'true';
+    // process.env['INPUT_CNAME'] = 'github.com';
+    process.env['INPUT_EXCLUDE_ASSETS'] = '.github';
+    const inps: Inputs = getInputs();
+    const remoteURL = 'https://x-access-token:pat@github.com/actions/pages.git';
+    const date = new Date();
+    const unixTime = date.getTime();
+    const workDir = await getWorkDirName(`${unixTime}`);
+    await expect(setRepo(inps, remoteURL, workDir)).rejects.toThrowError(
+      'destination_dir should be a relative path'
+    );
+  });
 });
 
 describe('getUserName()', () => {
@@ -56,7 +191,7 @@ describe('setCommitAuthor()', () => {
   })();
 
   beforeEach(async () => {
-    await createWorkDir(workDirName);
+    await createDir(workDirName);
     process.chdir(workDirName);
     await exec.exec('git', ['init']);
   });
@@ -138,13 +273,7 @@ describe('getCommitMessage()', () => {
   });
 
   test('get custom message', () => {
-    const test = getCommitMessage(
-      'Custom msg',
-      '',
-      '',
-      'actions/pages',
-      'commit_hash'
-    );
+    const test = getCommitMessage('Custom msg', '', '', 'actions/pages', 'commit_hash');
     expect(test).toMatch('Custom msg commit_hash');
   });
 
@@ -160,13 +289,7 @@ describe('getCommitMessage()', () => {
   });
 
   test('get full custom message', () => {
-    const test = getCommitMessage(
-      '',
-      'Full custom msg',
-      '',
-      'actions/pages',
-      'commit_hash'
-    );
+    const test = getCommitMessage('', 'Full custom msg', '', 'actions/pages', 'commit_hash');
     expect(test).toMatch('Full custom msg');
   });
 

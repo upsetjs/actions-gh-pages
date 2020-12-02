@@ -25,6 +25,10 @@ inputs:
     description: 'Set an input directory for deployment.'
     required: false
     default: 'public'
+  destination_dir:
+    description: 'Set an destination subdirectory for deployment.'
+    required: false
+    default: ''
   external_repository:
     description: 'Set an external repository (owner/repo).'
     required: false
@@ -73,3 +77,7 @@ inputs:
   cname:
     description: 'Set custom domain'
     required: false
+  exclude_assets:
+    description: 'Set files or directories to exclude from a publish directory.'
+    required: false
+    default: '.github'

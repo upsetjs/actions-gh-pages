@@ -1,8 +1,4 @@
-import {
-  getPublishRepo,
-  setPersonalToken,
-  setGithubToken
-} from '../src/set-tokens';
+import {getPublishRepo, setPersonalToken, setGithubToken} from '../src/set-tokens';
 
 beforeEach(() => {
   jest.resetModules();
@@ -26,8 +22,7 @@ describe('getPublishRepo()', () => {
 
 describe('setGithubToken()', () => {
   test('return remote url with GITHUB_TOKEN gh-pages', () => {
-    const expected =
-      'https://x-access-token:GITHUB_TOKEN@github.com/owner/repo.git';
+    const expected = 'https://x-access-token:GITHUB_TOKEN@github.com/owner/repo.git';
     const test = setGithubToken(
       'GITHUB_TOKEN',
       'owner/repo',
@@ -40,8 +35,7 @@ describe('setGithubToken()', () => {
   });
 
   test('return remote url with GITHUB_TOKEN master', () => {
-    const expected =
-      'https://x-access-token:GITHUB_TOKEN@github.com/owner/repo.git';
+    const expected = 'https://x-access-token:GITHUB_TOKEN@github.com/owner/repo.git';
     const test = setGithubToken(
       'GITHUB_TOKEN',
       'owner/repo',
@@ -53,16 +47,35 @@ describe('setGithubToken()', () => {
     expect(test).toMatch(expected);
   });
 
-  test('throw error master to master', () => {
+  test('return remote url with GITHUB_TOKEN gh-pages (RegExp)', () => {
+    const expected = 'https://x-access-token:GITHUB_TOKEN@github.com/owner/repo.git';
+    const test = setGithubToken(
+      'GITHUB_TOKEN',
+      'owner/repo',
+      'gh-pages',
+      '',
+      'refs/heads/gh-pages-base',
+      'push'
+    );
+    expect(test).toMatch(expected);
+  });
+
+  test('throw error gh-pages-base to gh-pages-base (RegExp)', () => {
     expect(() => {
       setGithubToken(
         'GITHUB_TOKEN',
         'owner/repo',
-        'master',
+        'gh-pages-base',
         '',
-        'refs/heads/master',
+        'refs/heads/gh-pages-base',
         'push'
       );
+    }).toThrowError('You deploy from gh-pages-base to gh-pages-base');
+  });
+
+  test('throw error master to master', () => {
+    expect(() => {
+      setGithubToken('GITHUB_TOKEN', 'owner/repo', 'master', '', 'refs/heads/master', 'push');
     }).toThrowError('You deploy from master to master');
   });
 
@@ -76,14 +89,14 @@ describe('setGithubToken()', () => {
         'refs/heads/master',
         'push'
       );
-    }).toThrowError(
-      'GITHUB_TOKEN does not support to push to an external repository'
-    );
+    }).toThrowError(`\
+The generated GITHUB_TOKEN (github_token) does not support to push to an external repository.
+Use deploy_key or personal_token.
+`);
   });
 
   test('return remote url with GITHUB_TOKEN pull_request', () => {
-    const expected =
-      'https://x-access-token:GITHUB_TOKEN@github.com/owner/repo.git';
+    const expected = 'https://x-access-token:GITHUB_TOKEN@github.com/owner/repo.git';
     const test = setGithubToken(
       'GITHUB_TOKEN',
       'owner/repo',

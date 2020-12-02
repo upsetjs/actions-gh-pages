@@ -2,6 +2,491 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.7.3](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.2...v3.7.3) (2020-10-20)
+
+
+### ci
+
+* bump codecov/codecov-action from v1.0.13 to v1.0.14 (#526) ([c4241b2](https://github.com/peaceiris/actions-gh-pages/commit/c4241b26fb90917901c95fabafc9907f71f44508)), closes [#526](https://github.com/peaceiris/actions-gh-pages/issues/526)
+
+### docs
+
+* Add link to create-react-app (#525) ([cf805b9](https://github.com/peaceiris/actions-gh-pages/commit/cf805b9457df587d349ee1684a4801cf9bbaac7d)), closes [#525](https://github.com/peaceiris/actions-gh-pages/issues/525)
+
+### fix
+
+* copyAssets and deleteExcludedAssets (#528) ([e93eed3](https://github.com/peaceiris/actions-gh-pages/commit/e93eed3ba7edf10f461bc4a7bd14cd2a12f44935)), closes [#528](https://github.com/peaceiris/actions-gh-pages/issues/528)
+
+
+
+## [3.7.2](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.1...v3.7.2) (2020-10-15)
+
+
+### ci
+
+* peaceiris/workflows/create-release-npm@v0.7.0 ([45bd46f](https://github.com/peaceiris/actions-gh-pages/commit/45bd46f92200c682e8e4a5d0f542aa12f9417131))
+
+### fix
+
+* copy dotfiles (#521) ([95792e1](https://github.com/peaceiris/actions-gh-pages/commit/95792e1c0fe9dfef8ebe7284d1af7ca787fde866)), closes [#521](https://github.com/peaceiris/actions-gh-pages/issues/521) [#520](https://github.com/peaceiris/actions-gh-pages/issues/520) [#512](https://github.com/peaceiris/actions-gh-pages/issues/512) [#507](https://github.com/peaceiris/actions-gh-pages/issues/507) [#509](https://github.com/peaceiris/actions-gh-pages/issues/509) [#390](https://github.com/peaceiris/actions-gh-pages/issues/390) [#324](https://github.com/peaceiris/actions-gh-pages/issues/324) [#103](https://github.com/peaceiris/actions-gh-pages/issues/103)
+
+
+
+## [3.7.1](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.0...v3.7.1) (2020-10-14)
+
+
+### chore
+
+* add .prettierignore ([772c200](https://github.com/peaceiris/actions-gh-pages/commit/772c200ac146a7e8d63c227a919456f8e0b4693f))
+
+### ci
+
+* allow dependency-type production (#518) ([572a9b5](https://github.com/peaceiris/actions-gh-pages/commit/572a9b5eb96036fc7a15f7edc15612d6889f9cfa)), closes [#518](https://github.com/peaceiris/actions-gh-pages/issues/518)
+
+### deps
+
+* bump @types/node from 12.12.63 to 12.12.64 (#506) ([a60f467](https://github.com/peaceiris/actions-gh-pages/commit/a60f4671feb4a666aab43d6ac5a3783dc4657a43)), closes [#506](https://github.com/peaceiris/actions-gh-pages/issues/506)
+* bump @types/node from 12.12.64 to 12.12.66 (#508) ([5c575e8](https://github.com/peaceiris/actions-gh-pages/commit/5c575e8b276eea8921774c99a7b83c0d66cea90a)), closes [#508](https://github.com/peaceiris/actions-gh-pages/issues/508)
+* bump @types/node from 12.12.66 to 12.12.67 (#511) ([1447993](https://github.com/peaceiris/actions-gh-pages/commit/144799313d4ad48903ce4729920e3d2f1429bbeb)), closes [#511](https://github.com/peaceiris/actions-gh-pages/issues/511)
+* bump jest from 26.5.0 to 26.5.2 (#504) ([24f34b2](https://github.com/peaceiris/actions-gh-pages/commit/24f34b2d740cd79924d8a98bb8f26576309eeced)), closes [#504](https://github.com/peaceiris/actions-gh-pages/issues/504)
+* bump jest from 26.5.2 to 26.5.3 (#515) ([a284cb0](https://github.com/peaceiris/actions-gh-pages/commit/a284cb02e9b796754ca6b5c8471b228ec8c6958e)), closes [#515](https://github.com/peaceiris/actions-gh-pages/issues/515)
+* bump jest-circus from 26.5.1 to 26.5.2 (#505) ([274c177](https://github.com/peaceiris/actions-gh-pages/commit/274c177da0a2ff2cfe592e6b36c355f8bc062be5)), closes [#505](https://github.com/peaceiris/actions-gh-pages/issues/505)
+* bump jest-circus from 26.5.2 to 26.5.3 (#516) ([9765b50](https://github.com/peaceiris/actions-gh-pages/commit/9765b50692abbd7b95c1c097da071f5a9c98804d)), closes [#516](https://github.com/peaceiris/actions-gh-pages/issues/516)
+* bump node from 12.18.4 to 12.19.0 (#510) ([87e03f1](https://github.com/peaceiris/actions-gh-pages/commit/87e03f1be4c6673e544b6a89259729c5c646cdf6)), closes [#510](https://github.com/peaceiris/actions-gh-pages/issues/510)
+* update (#517) ([d81433e](https://github.com/peaceiris/actions-gh-pages/commit/d81433ecbd529e53bb1201223120e2febf24b310)), closes [#517](https://github.com/peaceiris/actions-gh-pages/issues/517)
+
+### docs
+
+* add notes about keep_files ([c77e4d0](https://github.com/peaceiris/actions-gh-pages/commit/c77e4d0f87024d01904cc067c1a8b8affd80c1f7)), closes [#507](https://github.com/peaceiris/actions-gh-pages/issues/507) [#509](https://github.com/peaceiris/actions-gh-pages/issues/509)
+* pin version to v3 ([b3747cd](https://github.com/peaceiris/actions-gh-pages/commit/b3747cde802bb259e2c13135ae1f36d309bd3808))
+* remove link to #349 ([1a9f7eb](https://github.com/peaceiris/actions-gh-pages/commit/1a9f7eb4817f70390ed147b00fdf4b7284cd913d)), closes [#349](https://github.com/peaceiris/actions-gh-pages/issues/349)
+* update exclude_assets ([4682881](https://github.com/peaceiris/actions-gh-pages/commit/4682881fa3a4b9f5a25027d6bf1b47f6d6fda5e9))
+* update Flutter Web ([edd5ff3](https://github.com/peaceiris/actions-gh-pages/commit/edd5ff366e489149e15c36cfe923b1d71953b7a7))
+* update Swift Publish ([c6c5feb](https://github.com/peaceiris/actions-gh-pages/commit/c6c5feba5e7cdf1e9227296b38c6ab27a6372304))
+* update Swift Publish ([f15a311](https://github.com/peaceiris/actions-gh-pages/commit/f15a3114676f95a60146c8270e93a3ddd2c03086))
+* update title position ([46b269e](https://github.com/peaceiris/actions-gh-pages/commit/46b269eb77e5fe6f2fc9c9cc531541227dfeca22))
+
+### feat
+
+* Add link to README in log ([25e5ffa](https://github.com/peaceiris/actions-gh-pages/commit/25e5ffa1476a0017af4dfa0feb054ac18ccd1797))
+
+### fix
+
+* copyAssets (#512) ([725f7db](https://github.com/peaceiris/actions-gh-pages/commit/725f7db867bb4bb443f5d8bdffb18297aab5e5a3)), closes [#512](https://github.com/peaceiris/actions-gh-pages/issues/512)
+
+
+
+# [3.7.0](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.0-8...v3.7.0) (2020-10-06)
+
+
+### chore
+
+* add ms-azuretools.vscode-docker ([b5c306f](https://github.com/peaceiris/actions-gh-pages/commit/b5c306f7ffdc59a10e5731919fd1b53b2f31d08b))
+
+### ci
+
+* bump actions/setup-node from v2.1.1 to v2.1.2 (#496) ([c1c219f](https://github.com/peaceiris/actions-gh-pages/commit/c1c219f526155987550e06bedfcc8e2fcc34f19b)), closes [#496](https://github.com/peaceiris/actions-gh-pages/issues/496)
+* bump codecov/codecov-action from v1.0.12 to v1.0.13 (#454) ([16beda6](https://github.com/peaceiris/actions-gh-pages/commit/16beda69bf1c2971147330f49aaed617dcd38a2c)), closes [#454](https://github.com/peaceiris/actions-gh-pages/issues/454)
+* bump peaceiris/actions-mdbook from v1.1.12 to v1.1.13 (#503) ([c41db76](https://github.com/peaceiris/actions-gh-pages/commit/c41db7653434f02391fb62fd0b3a1392c96e0f3a)), closes [#503](https://github.com/peaceiris/actions-gh-pages/issues/503)
+
+### deps
+
+* bump @actions/core from 1.2.4 to 1.2.5 (#464) ([f034a3f](https://github.com/peaceiris/actions-gh-pages/commit/f034a3f4851fe530b19b0413e95e6dc9f6651cac)), closes [#464](https://github.com/peaceiris/actions-gh-pages/issues/464)
+* bump @actions/core from 1.2.5 to 1.2.6 (#493) ([31a25da](https://github.com/peaceiris/actions-gh-pages/commit/31a25da1090b19d7964d43a4999bbcac970cabc2)), closes [#493](https://github.com/peaceiris/actions-gh-pages/issues/493)
+* bump @types/jest from 26.0.10 to 26.0.12 (#469) ([50d8ed5](https://github.com/peaceiris/actions-gh-pages/commit/50d8ed5bb609b910779ba8fb2be482988b1b2715)), closes [#469](https://github.com/peaceiris/actions-gh-pages/issues/469)
+* bump @types/jest from 26.0.12 to 26.0.13 (#472) ([c1ee410](https://github.com/peaceiris/actions-gh-pages/commit/c1ee41001942b9ad1cab043438839698182a8e36)), closes [#472](https://github.com/peaceiris/actions-gh-pages/issues/472)
+* bump @types/jest from 26.0.13 to 26.0.14 (#487) ([e5f4a93](https://github.com/peaceiris/actions-gh-pages/commit/e5f4a9361dc7a7fcf85bc93cdda63498b5b2675a)), closes [#487](https://github.com/peaceiris/actions-gh-pages/issues/487)
+* bump @types/jest from 26.0.9 to 26.0.10 (#452) ([a6d0886](https://github.com/peaceiris/actions-gh-pages/commit/a6d08861738e12d61a6165e91744ad47ec5055c8)), closes [#452](https://github.com/peaceiris/actions-gh-pages/issues/452)
+* bump @types/js-yaml from 3.12.4 to 3.12.5 (#369) ([b9e600f](https://github.com/peaceiris/actions-gh-pages/commit/b9e600fd62e1b00b9bece7bb97364b5e2851bde8)), closes [#369](https://github.com/peaceiris/actions-gh-pages/issues/369)
+* bump @types/node from 12.12.54 to 12.12.55 (#471) ([c04664f](https://github.com/peaceiris/actions-gh-pages/commit/c04664fa6b9c7976cb163f63bf3eeadb89dc5d35)), closes [#471](https://github.com/peaceiris/actions-gh-pages/issues/471)
+* bump @types/node from 12.12.55 to 12.12.56 (#477) ([b00ccd8](https://github.com/peaceiris/actions-gh-pages/commit/b00ccd8065e8b7492a736dc24ab492edd78c4d94)), closes [#477](https://github.com/peaceiris/actions-gh-pages/issues/477)
+* bump @types/node from 12.12.56 to 12.12.57 (#478) ([def0f6b](https://github.com/peaceiris/actions-gh-pages/commit/def0f6b6353a5f7375d8883fab8ba2a31aae4dde)), closes [#478](https://github.com/peaceiris/actions-gh-pages/issues/478)
+* bump @types/node from 12.12.57 to 12.12.58 (#480) ([82c3353](https://github.com/peaceiris/actions-gh-pages/commit/82c33532d47c1e3e1022768837fe72240e14df4e)), closes [#480](https://github.com/peaceiris/actions-gh-pages/issues/480)
+* bump @types/node from 12.12.58 to 12.12.59 (#484) ([0b2e6b4](https://github.com/peaceiris/actions-gh-pages/commit/0b2e6b45b9742859757becb0e32d2dac9603ae8b)), closes [#484](https://github.com/peaceiris/actions-gh-pages/issues/484)
+* bump @types/node from 12.12.59 to 12.12.61 (#486) ([2a142a0](https://github.com/peaceiris/actions-gh-pages/commit/2a142a0e742af73091ee341d3a16e417831d2ade)), closes [#486](https://github.com/peaceiris/actions-gh-pages/issues/486)
+* bump @types/node from 12.12.61 to 12.12.62 (#488) ([9c2e2dd](https://github.com/peaceiris/actions-gh-pages/commit/9c2e2dd3cef54dcc19cbf40f9e82d565a0e0958a)), closes [#488](https://github.com/peaceiris/actions-gh-pages/issues/488)
+* bump @types/node from 12.12.62 to 12.12.63 (#499) ([803227f](https://github.com/peaceiris/actions-gh-pages/commit/803227f54b5889f9da91766b49c882a8f1757188)), closes [#499](https://github.com/peaceiris/actions-gh-pages/issues/499)
+* bump @vercel/ncc from 0.23.0 to 0.24.0 (#466) ([c20c670](https://github.com/peaceiris/actions-gh-pages/commit/c20c670c27d0e3057e45943f483bd0065f6041c8)), closes [#466](https://github.com/peaceiris/actions-gh-pages/issues/466)
+* bump @vercel/ncc from 0.24.0 to 0.24.1 (#482) ([c96473b](https://github.com/peaceiris/actions-gh-pages/commit/c96473bb55710193901822a1ff27f6832eb72088)), closes [#482](https://github.com/peaceiris/actions-gh-pages/issues/482)
+* bump eslint-config-prettier from 6.11.0 to 6.12.0 (#494) ([9cb40f4](https://github.com/peaceiris/actions-gh-pages/commit/9cb40f4ee908941ea49e90aff1ad48df306fcc38)), closes [#494](https://github.com/peaceiris/actions-gh-pages/issues/494)
+* bump eslint-plugin-jest from 23.20.0 to 24.0.0 (#474) ([457c86c](https://github.com/peaceiris/actions-gh-pages/commit/457c86c44a39d04fbdcb8689e2f7672171751c58)), closes [#474](https://github.com/peaceiris/actions-gh-pages/issues/474)
+* bump eslint-plugin-jest from 24.0.0 to 24.0.1 (#481) ([913650d](https://github.com/peaceiris/actions-gh-pages/commit/913650d45b7f1ea255cb5ff4b56dbe9c7b07a2ca)), closes [#481](https://github.com/peaceiris/actions-gh-pages/issues/481)
+* bump eslint-plugin-jest from 24.0.1 to 24.0.2 (#491) ([e399650](https://github.com/peaceiris/actions-gh-pages/commit/e3996506619cae3bd515e7465c8dd5061c206101)), closes [#491](https://github.com/peaceiris/actions-gh-pages/issues/491)
+* bump eslint-plugin-jest from 24.0.2 to 24.1.0 (#501) ([cb130c6](https://github.com/peaceiris/actions-gh-pages/commit/cb130c640dd2b2db834221575f347c93197363f0)), closes [#501](https://github.com/peaceiris/actions-gh-pages/issues/501)
+* bump husky from 4.2.5 to 4.3.0 (#475) ([afac56d](https://github.com/peaceiris/actions-gh-pages/commit/afac56dcec4acb0a3c4bdcee799b2d5e6a582c99)), closes [#475](https://github.com/peaceiris/actions-gh-pages/issues/475)
+* bump jest from 25.5.4 to 26.3.0 (#447) ([1f2df4a](https://github.com/peaceiris/actions-gh-pages/commit/1f2df4a7dd60e855bfd97162973852d897887c7a)), closes [#447](https://github.com/peaceiris/actions-gh-pages/issues/447)
+* bump jest from 26.3.0 to 26.4.0 (#450) ([7af7235](https://github.com/peaceiris/actions-gh-pages/commit/7af7235a08b063929bd7e0c55498c7bf5b21f73f)), closes [#450](https://github.com/peaceiris/actions-gh-pages/issues/450)
+* bump jest from 26.4.0 to 26.4.1 (#457) ([a1d6c21](https://github.com/peaceiris/actions-gh-pages/commit/a1d6c2131c75b416675be135a52a998a17923d86)), closes [#457](https://github.com/peaceiris/actions-gh-pages/issues/457)
+* bump jest from 26.4.1 to 26.4.2 (#461) ([48392f0](https://github.com/peaceiris/actions-gh-pages/commit/48392f0c0cacab183ba360172d795ea0517c5b52)), closes [#461](https://github.com/peaceiris/actions-gh-pages/issues/461)
+* bump jest from 26.4.2 to 26.5.0 (#500) ([3b4c9db](https://github.com/peaceiris/actions-gh-pages/commit/3b4c9db6447ee157aacdda858a7012007f285b26)), closes [#500](https://github.com/peaceiris/actions-gh-pages/issues/500)
+* bump jest-circus from 26.2.2 to 26.3.0 (#446) ([61e2a61](https://github.com/peaceiris/actions-gh-pages/commit/61e2a61aea18b6db8407f51f442a89c30b0a4b16)), closes [#446](https://github.com/peaceiris/actions-gh-pages/issues/446)
+* bump jest-circus from 26.3.0 to 26.4.0 (#449) ([74041e3](https://github.com/peaceiris/actions-gh-pages/commit/74041e385e8c91588c923bb9a9dad5e0c675dc10)), closes [#449](https://github.com/peaceiris/actions-gh-pages/issues/449)
+* bump jest-circus from 26.4.0 to 26.4.1 (#458) ([f74f5a3](https://github.com/peaceiris/actions-gh-pages/commit/f74f5a30da4f78a3cfec43fbe471308d45252fb9)), closes [#458](https://github.com/peaceiris/actions-gh-pages/issues/458)
+* bump jest-circus from 26.4.1 to 26.4.2 (#460) ([5487610](https://github.com/peaceiris/actions-gh-pages/commit/548761031c6cca51ad96d778241b2f4189e85876)), closes [#460](https://github.com/peaceiris/actions-gh-pages/issues/460)
+* bump jest-circus from 26.4.2 to 26.5.1 (#498) ([2cddccc](https://github.com/peaceiris/actions-gh-pages/commit/2cddccc8c3678fdfa63dd9a29bbca1ace787eade)), closes [#498](https://github.com/peaceiris/actions-gh-pages/issues/498)
+* bump lint-staged from 10.2.11 to 10.2.13 (#463) ([67200cf](https://github.com/peaceiris/actions-gh-pages/commit/67200cfb5a4969bf12cbc84e48a072956aad09ca)), closes [#463](https://github.com/peaceiris/actions-gh-pages/issues/463)
+* bump lint-staged from 10.2.13 to 10.3.0 (#473) ([0762b5c](https://github.com/peaceiris/actions-gh-pages/commit/0762b5c9b9d1d565ef5dd34b6cfd8e7864ffdf15)), closes [#473](https://github.com/peaceiris/actions-gh-pages/issues/473)
+* bump lint-staged from 10.3.0 to 10.4.0 (#485) ([abae70b](https://github.com/peaceiris/actions-gh-pages/commit/abae70beb5c5f4d3e69fad85eec74879a7c022e4)), closes [#485](https://github.com/peaceiris/actions-gh-pages/issues/485)
+* bump node from 12.18.3 to 12.18.4 (#489) ([9fba4cf](https://github.com/peaceiris/actions-gh-pages/commit/9fba4cf667368d5b10eff9771bfd1df51546b1d8)), closes [#489](https://github.com/peaceiris/actions-gh-pages/issues/489)
+* bump node-fetch from 2.6.0 to 2.6.1 (#479) ([45708a0](https://github.com/peaceiris/actions-gh-pages/commit/45708a03737eaa992c9b6979c21a8b852bbc5f6a)), closes [#479](https://github.com/peaceiris/actions-gh-pages/issues/479)
+* bump prettier from 2.0.5 to 2.1.0 (#462) ([37b07f7](https://github.com/peaceiris/actions-gh-pages/commit/37b07f70e3922aaf5677eb3ebdf2ffc0fd18cfab)), closes [#462](https://github.com/peaceiris/actions-gh-pages/issues/462)
+* bump prettier from 2.1.0 to 2.1.1 (#465) ([8955511](https://github.com/peaceiris/actions-gh-pages/commit/8955511f502023da36495f9331276ee8257a44d8)), closes [#465](https://github.com/peaceiris/actions-gh-pages/issues/465)
+* bump prettier from 2.1.1 to 2.1.2 (#483) ([fe21b42](https://github.com/peaceiris/actions-gh-pages/commit/fe21b422bf4670fb994fee05bef0563b80d29a31)), closes [#483](https://github.com/peaceiris/actions-gh-pages/issues/483)
+* bump standard-version from 8.0.2 to 9.0.0 (#453) ([8146aed](https://github.com/peaceiris/actions-gh-pages/commit/8146aedaa917e5ba0e9383328b53b283506f286b)), closes [#453](https://github.com/peaceiris/actions-gh-pages/issues/453)
+* bump ts-jest from 25.5.1 to 26.2.0 (#448) ([42cf996](https://github.com/peaceiris/actions-gh-pages/commit/42cf99685e494616538e9f3e9f49524a1964de37)), closes [#448](https://github.com/peaceiris/actions-gh-pages/issues/448)
+* bump ts-jest from 26.2.0 to 26.3.0 (#467) ([5a84f48](https://github.com/peaceiris/actions-gh-pages/commit/5a84f48f784a37aa957d6ca09e66026a251aa46c)), closes [#467](https://github.com/peaceiris/actions-gh-pages/issues/467)
+* bump ts-jest from 26.3.0 to 26.4.0 (#492) ([edfebaf](https://github.com/peaceiris/actions-gh-pages/commit/edfebaf01b68194497965068543f085f726ad1bf)), closes [#492](https://github.com/peaceiris/actions-gh-pages/issues/492)
+* bump ts-jest from 26.4.0 to 26.4.1 (#495) ([b4f6cbe](https://github.com/peaceiris/actions-gh-pages/commit/b4f6cbe8b15af25d3f1b5e3e11066669a792ccae)), closes [#495](https://github.com/peaceiris/actions-gh-pages/issues/495)
+* bump typescript from 3.9.7 to 4.0.2 (#468) ([d874503](https://github.com/peaceiris/actions-gh-pages/commit/d87450373360617bad3affaa5e3ef40153eeaaee)), closes [#468](https://github.com/peaceiris/actions-gh-pages/issues/468)
+* bump typescript from 4.0.2 to 4.0.3 (#490) ([120ec44](https://github.com/peaceiris/actions-gh-pages/commit/120ec442c194f65cc7fbfba21cbe4987480cf914)), closes [#490](https://github.com/peaceiris/actions-gh-pages/issues/490)
+* change @zeit/ncc to @vercel/ncc (#459) ([79bf213](https://github.com/peaceiris/actions-gh-pages/commit/79bf213729e88d1c383575834ddac86d57d3daa5)), closes [#459](https://github.com/peaceiris/actions-gh-pages/issues/459)
+
+### docs
+
+* add note about keep_files and force_orphan (#456) ([fb9ff7f](https://github.com/peaceiris/actions-gh-pages/commit/fb9ff7fb2ebdc1a780c8a17bbdb3c71d6d1ccc38)), closes [#456](https://github.com/peaceiris/actions-gh-pages/issues/456) [#455](https://github.com/peaceiris/actions-gh-pages/issues/455)
+* bump v3.7.0-6 to v3.7.0-8 ([d7934f1](https://github.com/peaceiris/actions-gh-pages/commit/d7934f1bfbc15c35643fbec079d6483308ac867c))
+* change master branch to another (#436) ([f89d868](https://github.com/peaceiris/actions-gh-pages/commit/f89d8688b5d8ad20b650ecaf48e1dc1d07178674)), closes [#436](https://github.com/peaceiris/actions-gh-pages/issues/436)
+* Fix typo in README (#476) ([f3be898](https://github.com/peaceiris/actions-gh-pages/commit/f3be898a9685a229d5312bbc6a63eb8d2c5a0f02)), closes [#476](https://github.com/peaceiris/actions-gh-pages/issues/476)
+
+
+
+# [3.7.0-8](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.0-7...v3.7.0-8) (2020-08-09)
+
+
+### chore
+
+* Add vscode devcontainer ([6b302fd](https://github.com/peaceiris/actions-gh-pages/commit/6b302fdd506eb1874da1e7245b19bc66c4db0bfc))
+
+### ci
+
+* Add actions runner env (#443) ([ba912f7](https://github.com/peaceiris/actions-gh-pages/commit/ba912f746bdcba752e96a9c6731af9f9ff289f0e)), closes [#443](https://github.com/peaceiris/actions-gh-pages/issues/443)
+
+### deps
+
+* bump @types/jest from 26.0.7 to 26.0.8 (#439) ([3f71ec2](https://github.com/peaceiris/actions-gh-pages/commit/3f71ec211a08aef8dde6999c8ee81dae974a26f2)), closes [#439](https://github.com/peaceiris/actions-gh-pages/issues/439)
+* bump @types/jest from 26.0.8 to 26.0.9 (#442) ([02db90c](https://github.com/peaceiris/actions-gh-pages/commit/02db90c5c8564c8b0c1432aca1b52d66d10c7583)), closes [#442](https://github.com/peaceiris/actions-gh-pages/issues/442)
+* bump @types/node from 12.12.53 to 12.12.54 (#441) ([b5599b3](https://github.com/peaceiris/actions-gh-pages/commit/b5599b36fdd4acffdb3fb4d55bb94ac76a2b3b98)), closes [#441](https://github.com/peaceiris/actions-gh-pages/issues/441)
+
+### refactor
+
+* Enhance log (#444) ([f800244](https://github.com/peaceiris/actions-gh-pages/commit/f80024481c7939706fac36cee86324c56371d6fd)), closes [#444](https://github.com/peaceiris/actions-gh-pages/issues/444)
+
+
+
+# [3.7.0-7](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.0-6...v3.7.0-7) (2020-08-02)
+
+
+### ci
+
+* add env (#419) ([71958c5](https://github.com/peaceiris/actions-gh-pages/commit/71958c534b1f4dadbef055d8851541314574559b)), closes [#419](https://github.com/peaceiris/actions-gh-pages/issues/419)
+* Add npm audit (#426) ([a49e738](https://github.com/peaceiris/actions-gh-pages/commit/a49e738c320151f18296dbcda6a418408cd64ea3)), closes [#426](https://github.com/peaceiris/actions-gh-pages/issues/426)
+* add workflow_dispatch and schedule ([24d40fe](https://github.com/peaceiris/actions-gh-pages/commit/24d40fe124feecb6c5f4259a1906fcafd603b8f6))
+* change base image from Debian to Ubuntu 18.04 (#428) ([70c0076](https://github.com/peaceiris/actions-gh-pages/commit/70c0076457b26d38a26bacbac279b8bf35cc47c8)), closes [#428](https://github.com/peaceiris/actions-gh-pages/issues/428)
+* Clean up apt cache and junk (#425) ([5d053d3](https://github.com/peaceiris/actions-gh-pages/commit/5d053d30d0c607d63ce46c3d7ce321bfdb1c11c1)), closes [#425](https://github.com/peaceiris/actions-gh-pages/issues/425)
+* enhance version log (#429) ([681dcab](https://github.com/peaceiris/actions-gh-pages/commit/681dcab3fd25a0f24dc66bb2767c0e37934aad5c)), closes [#429](https://github.com/peaceiris/actions-gh-pages/issues/429)
+* reuse NODE_VERSION in nodesource URL (#430) ([2b5ce90](https://github.com/peaceiris/actions-gh-pages/commit/2b5ce90dc9ac2814d6e8ee5322d3e18b42ad008f)), closes [#430](https://github.com/peaceiris/actions-gh-pages/issues/430)
+* Set default branch to main (#424) ([4cf5105](https://github.com/peaceiris/actions-gh-pages/commit/4cf510592915a8c58f536094aa9b881196852ce1)), closes [#424](https://github.com/peaceiris/actions-gh-pages/issues/424)
+* set env CI to true (#418) ([eca3d9d](https://github.com/peaceiris/actions-gh-pages/commit/eca3d9d25efd39b60b2e32fe85e94b53951f9096)), closes [#418](https://github.com/peaceiris/actions-gh-pages/issues/418)
+
+### deps
+
+* Apply npm audit fix (#434) ([4bf31e4](https://github.com/peaceiris/actions-gh-pages/commit/4bf31e45208169b022dc9b870de61d6eea322d29)), closes [#434](https://github.com/peaceiris/actions-gh-pages/issues/434)
+* bump @types/node from 12.12.52 to 12.12.53 (#421) ([c839730](https://github.com/peaceiris/actions-gh-pages/commit/c8397307b446e9d81d20682060c40e8dd4de96b0)), closes [#421](https://github.com/peaceiris/actions-gh-pages/issues/421)
+* bump eslint-plugin-jest from 23.18.0 to 23.18.2 (#420) ([7259f5c](https://github.com/peaceiris/actions-gh-pages/commit/7259f5ccc2d61b325b9c8f33d570170a345d496b)), closes [#420](https://github.com/peaceiris/actions-gh-pages/issues/420)
+* bump eslint-plugin-jest from 23.18.2 to 23.19.0 (#423) ([2392f69](https://github.com/peaceiris/actions-gh-pages/commit/2392f69e4dd8264685215438922790389daedb24)), closes [#423](https://github.com/peaceiris/actions-gh-pages/issues/423)
+* bump eslint-plugin-jest from 23.19.0 to 23.20.0 (#432) ([0c8fc2d](https://github.com/peaceiris/actions-gh-pages/commit/0c8fc2d5e699acedef9512db7f3c240fa110285a)), closes [#432](https://github.com/peaceiris/actions-gh-pages/issues/432)
+* bump git from 2.27.0 to 2.28.0 (#422) ([fecb564](https://github.com/peaceiris/actions-gh-pages/commit/fecb5648609eee9e7add9fa2d5a9397abb3398db)), closes [#422](https://github.com/peaceiris/actions-gh-pages/issues/422)
+* bump jest-circus from 26.1.0 to 26.2.2 (#435) ([4fb3d60](https://github.com/peaceiris/actions-gh-pages/commit/4fb3d60161340ada324107b29fe7f4aa4a6487f0)), closes [#435](https://github.com/peaceiris/actions-gh-pages/issues/435)
+* bump node from 12.18.2 to 12.18.3 (#431) ([0794e07](https://github.com/peaceiris/actions-gh-pages/commit/0794e07c99f802bb0f1a4c00972e46b381a360ee)), closes [#431](https://github.com/peaceiris/actions-gh-pages/issues/431)
+
+### docs
+
+* Add exclude_assets section ([7dd962e](https://github.com/peaceiris/actions-gh-pages/commit/7dd962e52e7deb89dfa860da173ddbb96462d371))
+* bump hugo from 0.74.2 to 0.74.3 ([ded3953](https://github.com/peaceiris/actions-gh-pages/commit/ded3953565f3dde01b9678834705b16df9be1df6))
+
+### feat
+
+* Add .nojekyll file by default for all branches (#438) ([079d483](https://github.com/peaceiris/actions-gh-pages/commit/079d48367e5a8bc6448f5e9846666d27ea66e1e5)), closes [#438](https://github.com/peaceiris/actions-gh-pages/issues/438)
+
+
+
+# [3.7.0-6](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.0-5...v3.7.0-6) (2020-07-25)
+
+
+### feat
+
+* exclude_assets supports glob patterns (#417) ([6f45501](https://github.com/peaceiris/actions-gh-pages/commit/6f45501409dbe16857c00f6d40a51bea56254f2b)), closes [#417](https://github.com/peaceiris/actions-gh-pages/issues/417) [#163](https://github.com/peaceiris/actions-gh-pages/issues/163)
+
+
+
+# [3.7.0-5](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.0-4...v3.7.0-5) (2020-07-25)
+
+
+### feat
+
+* Add exclude_assets option (#416) ([0f5c65e](https://github.com/peaceiris/actions-gh-pages/commit/0f5c65e1408b30fe461ba319ca9a01d20c293cd4)), closes [#416](https://github.com/peaceiris/actions-gh-pages/issues/416) [#163](https://github.com/peaceiris/actions-gh-pages/issues/163)
+
+
+
+# [3.7.0-4](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.0-3...v3.7.0-4) (2020-07-25)
+
+
+### fix
+
+* copyAssets() for destination_dir (#414) ([674c231](https://github.com/peaceiris/actions-gh-pages/commit/674c2318cebb9ba59aa8fbf8ec4fae8482e51e5c)), closes [#414](https://github.com/peaceiris/actions-gh-pages/issues/414)
+
+
+
+# [3.7.0-3](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.0-2...v3.7.0-3) (2020-07-24)
+
+
+### deps
+
+* bump @types/jest from 26.0.5 to 26.0.7 (#411) ([d1700b5](https://github.com/peaceiris/actions-gh-pages/commit/d1700b565361478232daa6d66d3fe7c146b9d08f)), closes [#411](https://github.com/peaceiris/actions-gh-pages/issues/411)
+* bump @types/node from 12.12.51 to 12.12.52 (#412) ([1b5d710](https://github.com/peaceiris/actions-gh-pages/commit/1b5d710b249d09c1e229931378217c47773de8ed)), closes [#412](https://github.com/peaceiris/actions-gh-pages/issues/412)
+
+### fix
+
+* set full path of publishing assets (#413) ([6f6bb26](https://github.com/peaceiris/actions-gh-pages/commit/6f6bb2661a12d5db5d7df62962d1d28403a02860)), closes [#413](https://github.com/peaceiris/actions-gh-pages/issues/413) [/github.com/peaceiris/actions-gh-pages/issues/410#issuecomment-663507581](https://github.com//github.com/peaceiris/actions-gh-pages/issues/410/issues/issuecomment-663507581)
+
+### refactor
+
+* change message type from warning to info ([3667feb](https://github.com/peaceiris/actions-gh-pages/commit/3667febec573a36efa26505b6a712b314242991a))
+
+
+
+# [3.7.0-2](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.0-1...v3.7.0-2) (2020-07-23)
+
+
+### ci
+
+* Add docker-compose.yml (#406) ([a2712f7](https://github.com/peaceiris/actions-gh-pages/commit/a2712f7b923e3e05d0f46e54fbcacef3380aca31)), closes [#406](https://github.com/peaceiris/actions-gh-pages/issues/406)
+* bump actions/setup-node from v2.1.0 to v2.1.1 (#407) ([8cd820b](https://github.com/peaceiris/actions-gh-pages/commit/8cd820bd660be6aa016923b6b35005df2fb071da)), closes [#407](https://github.com/peaceiris/actions-gh-pages/issues/407)
+* bump codecov/codecov-action from v1.0.11 to v1.0.12 (#409) ([af7aac1](https://github.com/peaceiris/actions-gh-pages/commit/af7aac10073791e2907990204f723d6b0ff902c5)), closes [#409](https://github.com/peaceiris/actions-gh-pages/issues/409)
+* remove types [skip ci] ([f633b0f](https://github.com/peaceiris/actions-gh-pages/commit/f633b0f6b54f252348cc3b10713b111caaf6f3d1))
+
+### docs
+
+* Add Code Scanning workflow badge ([99a89f6](https://github.com/peaceiris/actions-gh-pages/commit/99a89f661a291c444965018bf828995e08d7bb7b))
+* bump hugo from 0.71.1 to 0.74.2 ([ad558aa](https://github.com/peaceiris/actions-gh-pages/commit/ad558aa8bd9ad82edc7bd886159659328e6d61de))
+* change default-branch to main ([6896bd8](https://github.com/peaceiris/actions-gh-pages/commit/6896bd8b80ecc02e6c47bbcf7fc1ae0bd4d47645))
+* change master branch to default-branch (#408) ([5051105](https://github.com/peaceiris/actions-gh-pages/commit/505110527986e8c3d30694488f643d6529d0d593)), closes [#408](https://github.com/peaceiris/actions-gh-pages/issues/408)
+
+### fix
+
+* chdir to workDir after copied assets ([612f1f7](https://github.com/peaceiris/actions-gh-pages/commit/612f1f7579820dc380d265d61924f7a7d8718859)), closes [#324](https://github.com/peaceiris/actions-gh-pages/issues/324)
+
+
+
+# [3.7.0-1](https://github.com/peaceiris/actions-gh-pages/compare/v3.7.0-0...v3.7.0-1) (2020-07-21)
+
+
+### docs
+
+* Enhance section name ([3874723](https://github.com/peaceiris/actions-gh-pages/commit/3874723ac6158d13e3f1e3c8fd34e1ce96d9edf7))
+
+### fix
+
+* KeepFiles behaviour when DestinationDir has dir (#405) ([ce4e3be](https://github.com/peaceiris/actions-gh-pages/commit/ce4e3beff1ed33658f3160b0f45b688c6ea09932)), closes [#405](https://github.com/peaceiris/actions-gh-pages/issues/405) [#324](https://github.com/peaceiris/actions-gh-pages/issues/324)
+
+
+
+# [3.7.0-0](https://github.com/peaceiris/actions-gh-pages/compare/v3.6.4...v3.7.0-0) (2020-07-21)
+
+
+### ci
+
+* bump codecov/codecov-action from v1.0.10 to v1.0.11 (#401) ([a5a8912](https://github.com/peaceiris/actions-gh-pages/commit/a5a8912d3e47a3ba8785d356ebed0fd02e2eeb46)), closes [#401](https://github.com/peaceiris/actions-gh-pages/issues/401)
+* update label ([5980f05](https://github.com/peaceiris/actions-gh-pages/commit/5980f05de835c05638459c3c7a80d76edd0c7969))
+
+### deps
+
+* bump @types/jest from 26.0.4 to 26.0.5 (#402) ([42a6cdd](https://github.com/peaceiris/actions-gh-pages/commit/42a6cdde0c0d499af05cd22020132f6240d578a8)), closes [#402](https://github.com/peaceiris/actions-gh-pages/issues/402)
+* bump @types/node from 12.12.50 to 12.12.51 (#404) ([0cb61e9](https://github.com/peaceiris/actions-gh-pages/commit/0cb61e91a5487c04cb202e13a8d2bc25c09c80e1)), closes [#404](https://github.com/peaceiris/actions-gh-pages/issues/404)
+
+### docs
+
+* update dependabot label ([2504696](https://github.com/peaceiris/actions-gh-pages/commit/250469649c036a88f547b96f94867900a1f19163))
+
+### feat
+
+* Add destination_dir option (#403) ([f30118c](https://github.com/peaceiris/actions-gh-pages/commit/f30118c78eebbbe6cf66009b80a7414a4047de43)), closes [#403](https://github.com/peaceiris/actions-gh-pages/issues/403) [#324](https://github.com/peaceiris/actions-gh-pages/issues/324) [#390](https://github.com/peaceiris/actions-gh-pages/issues/390)
+
+
+
+## [3.6.4](https://github.com/peaceiris/actions-gh-pages/compare/v3.6.3...v3.6.4) (2020-07-18)
+
+
+### chore
+
+* change default branch from master to main (#396) ([932df18](https://github.com/peaceiris/actions-gh-pages/commit/932df18147b59ce4a998b4caabfcc50f1889c827)), closes [#396](https://github.com/peaceiris/actions-gh-pages/issues/396)
+
+### deps
+
+* bump standard-version from 8.0.1 to 8.0.2 (#395) ([c935046](https://github.com/peaceiris/actions-gh-pages/commit/c935046a93788ca4ea55bb13f438ae77a54a9197)), closes [#395](https://github.com/peaceiris/actions-gh-pages/issues/395)
+* bump typescript from 3.9.6 to 3.9.7 (#399) ([7e92312](https://github.com/peaceiris/actions-gh-pages/commit/7e92312ae46d6a7ad1c55a6ce3d98c66ae1ddda3)), closes [#399](https://github.com/peaceiris/actions-gh-pages/issues/399)
+
+### docs
+
+* change default branch from master to main (#397) ([6901b8e](https://github.com/peaceiris/actions-gh-pages/commit/6901b8e8fcec69a339c4a622b85ec3f66e78f90a)), closes [#397](https://github.com/peaceiris/actions-gh-pages/issues/397)
+
+### feat
+
+* Allow absolute path for publish_dir (#400) ([e193524](https://github.com/peaceiris/actions-gh-pages/commit/e193524bff3509becae7e3ced3114176cc70a5dd)), closes [#400](https://github.com/peaceiris/actions-gh-pages/issues/400) [#242](https://github.com/peaceiris/actions-gh-pages/issues/242)
+* enhance error message (#398) ([3d65640](https://github.com/peaceiris/actions-gh-pages/commit/3d656402e52a96a0c027e4ad98f3ce06da7f8c1b)), closes [#398](https://github.com/peaceiris/actions-gh-pages/issues/398)
+
+
+
+## [3.6.3](https://github.com/peaceiris/actions-gh-pages/compare/v3.6.2...v3.6.3) (2020-07-14)
+
+
+### deps
+
+* bump @types/node from 12.12.48 to 12.12.50 (#392) ([a4205cb](https://github.com/peaceiris/actions-gh-pages/commit/a4205cbdd8cd3a11aee9c47b7f9d99a615b70a21)), closes [#392](https://github.com/peaceiris/actions-gh-pages/issues/392)
+* bump standard-version from 8.0.0 to 8.0.1 (#391) ([6b76e36](https://github.com/peaceiris/actions-gh-pages/commit/6b76e36ab31b40e721fdf587221239d94ca5d141)), closes [#391](https://github.com/peaceiris/actions-gh-pages/issues/391)
+
+### docs
+
+* Add dependabot.yml example (#385) ([a8941b8](https://github.com/peaceiris/actions-gh-pages/commit/a8941b89c6f5476753fcdadcacbfb73206faefb3)), closes [#385](https://github.com/peaceiris/actions-gh-pages/issues/385)
+* add notes #349 (#387) ([488b74c](https://github.com/peaceiris/actions-gh-pages/commit/488b74cc9f861adb4649850096fb9f367363c096)), closes [#349](https://github.com/peaceiris/actions-gh-pages/issues/349) [#387](https://github.com/peaceiris/actions-gh-pages/issues/387)
+* Add Schedule and Manual Deployment (#386) ([16d58be](https://github.com/peaceiris/actions-gh-pages/commit/16d58bea333f07b6141ab6d6f95dca541fde8853)), closes [#386](https://github.com/peaceiris/actions-gh-pages/issues/386)
+* pin actions/setup-node from v2 to v2.1.0 (#389) ([d753ac9](https://github.com/peaceiris/actions-gh-pages/commit/d753ac9b7dd593b0877d35bc997ea8665c73866c)), closes [#389](https://github.com/peaceiris/actions-gh-pages/issues/389) [#388](https://github.com/peaceiris/actions-gh-pages/issues/388)
+
+### fix
+
+* isProhibitedBranch detection (#394) ([f53ab0c](https://github.com/peaceiris/actions-gh-pages/commit/f53ab0c2a5d3f3b2e6524639bae8ca84e454e049)), closes [#394](https://github.com/peaceiris/actions-gh-pages/issues/394)
+
+
+
+## [3.6.2](https://github.com/peaceiris/actions-gh-pages/compare/v3.6.1...v3.6.2) (2020-07-08)
+
+
+### chore
+
+* [CodeFactor] Apply fixes (#326) ([8f1f960](https://github.com/peaceiris/actions-gh-pages/commit/8f1f960923fb9b1ad582065a9e8921501233235d)), closes [#326](https://github.com/peaceiris/actions-gh-pages/issues/326)
+* Add note reading official docs ([aa82aeb](https://github.com/peaceiris/actions-gh-pages/commit/aa82aebc1d90d5e484f263ac8b446717fe186b29)), closes [#339](https://github.com/peaceiris/actions-gh-pages/issues/339)
+* change prettier to plugin:prettier/recommended (#366) ([91a3cf4](https://github.com/peaceiris/actions-gh-pages/commit/91a3cf4cdd6ff12a249851003b22ba9ce7a131d1)), closes [#366](https://github.com/peaceiris/actions-gh-pages/issues/366)
+* change printWidth from 80 to 100 (#362) ([4d89a38](https://github.com/peaceiris/actions-gh-pages/commit/4d89a385db8421a90a755e655201bfbb8e037f7d)), closes [#362](https://github.com/peaceiris/actions-gh-pages/issues/362)
+* Comment out explanations ([e705cf5](https://github.com/peaceiris/actions-gh-pages/commit/e705cf59bce4073ec34d96e0b007331bb156949f))
+* fix extends (#329) ([646a1a3](https://github.com/peaceiris/actions-gh-pages/commit/646a1a3881b4d64f0baaf0f2a4bad00d80f0b00c)), closes [#329](https://github.com/peaceiris/actions-gh-pages/issues/329)
+* Please follow the issue templates ([6d42c2c](https://github.com/peaceiris/actions-gh-pages/commit/6d42c2c3b6a5bfe9017e35a3bf449b52cb7f7e9a))
+* update ignore version @types/node (#341) ([8b93bc1](https://github.com/peaceiris/actions-gh-pages/commit/8b93bc127f802720e03d0c8fc04474187d513b8e)), closes [#341](https://github.com/peaceiris/actions-gh-pages/issues/341)
+* update url ([5b6baff](https://github.com/peaceiris/actions-gh-pages/commit/5b6baff975eb347e058449684755e5a6f1d90dbf))
+
+### ci
+
+* add Code Scanning workflow (#381) ([c6333d4](https://github.com/peaceiris/actions-gh-pages/commit/c6333d41f0f49f346e5610446126c513c830a63a)), closes [#381](https://github.com/peaceiris/actions-gh-pages/issues/381)
+* add is_skip [skip ci] ([f954d41](https://github.com/peaceiris/actions-gh-pages/commit/f954d4113e9aa614acce48a109989f2818498647))
+* Add package-ecosystem github-actions ([65dc7af](https://github.com/peaceiris/actions-gh-pages/commit/65dc7af0847a52d3e8dfa56f3f64dcb0acf6032f))
+* Add ubuntu-20.04 to matrix (#336) ([773665f](https://github.com/peaceiris/actions-gh-pages/commit/773665f4f03e53cf0c58c70fb75a4b61a59faa43)), closes [#336](https://github.com/peaceiris/actions-gh-pages/issues/336) [/github.com/actions/virtual-environments/issues/228#issuecomment-637362224](https://github.com//github.com/actions/virtual-environments/issues/228/issues/issuecomment-637362224)
+* add workflow_dispatch event ([4dfc201](https://github.com/peaceiris/actions-gh-pages/commit/4dfc201b552e8fdb33f8957c688f22aa826808f7))
+* bump actions/checkout from v2 to v2.3.0 (#353) ([744621d](https://github.com/peaceiris/actions-gh-pages/commit/744621d13de4d21149e264f31f753a661d02657b)), closes [#353](https://github.com/peaceiris/actions-gh-pages/issues/353)
+* bump actions/checkout from v2.3.0 to v2.3.1 (#355) ([70411f0](https://github.com/peaceiris/actions-gh-pages/commit/70411f07e77787ea9517c20372416bd564bacc49)), closes [#355](https://github.com/peaceiris/actions-gh-pages/issues/355)
+* bump actions/setup-node from v1.4.1 to v2.0.0 (#334) ([59c0ce4](https://github.com/peaceiris/actions-gh-pages/commit/59c0ce428416f5d77dd80447234854c5f265389a)), closes [#334](https://github.com/peaceiris/actions-gh-pages/issues/334)
+* bump actions/setup-node from v2.0.0 to v2.1.0 (#373) ([ac98064](https://github.com/peaceiris/actions-gh-pages/commit/ac980646cfdb44c8a3c8ca8feef157fec899833b)), closes [#373](https://github.com/peaceiris/actions-gh-pages/issues/373)
+* bump codecov/codecov-action from v1 to v1.0.7 (#333) ([d1afc2e](https://github.com/peaceiris/actions-gh-pages/commit/d1afc2e8ce82a3894c4f317aed2034c79df7f5d6)), closes [#333](https://github.com/peaceiris/actions-gh-pages/issues/333)
+* bump codecov/codecov-action from v1.0.7 to v1.0.10 (#375) ([05b3340](https://github.com/peaceiris/actions-gh-pages/commit/05b3340742dd75308cb4eca7658801e6ad1845fe)), closes [#375](https://github.com/peaceiris/actions-gh-pages/issues/375)
+* bump peaceiris/actions-mdbook from v1 to v1.1.12 (#360) ([19976af](https://github.com/peaceiris/actions-gh-pages/commit/19976af8e50d10695ac54978295745e906406cd6)), closes [#360](https://github.com/peaceiris/actions-gh-pages/issues/360)
+* Change test cases ([c8f4fd4](https://github.com/peaceiris/actions-gh-pages/commit/c8f4fd4c5df03e8cf5236282d5bd0803b916d80b))
+* Change update_type from all to semver:minor ([db632c7](https://github.com/peaceiris/actions-gh-pages/commit/db632c70f26b9129de49226f262be4a285869010))
+* Pin to actions/setup-node v1.4.1 ([4477775](https://github.com/peaceiris/actions-gh-pages/commit/4477775802ff17d7755561bf9b5c1ba0ce8a3eb1))
+* push dev docker image to packages (#384) ([29acb8e](https://github.com/peaceiris/actions-gh-pages/commit/29acb8eaeec4ad61d11a47ca8afbc51064d594a6)), closes [#384](https://github.com/peaceiris/actions-gh-pages/issues/384)
+* remove open-pull-requests-limit ([1ceef71](https://github.com/peaceiris/actions-gh-pages/commit/1ceef71a57129c1fc8e593d29088f17bed514448))
+* remove pull_request.types ([489a03a](https://github.com/peaceiris/actions-gh-pages/commit/489a03aac40f9daac18d4d333736c60057784060))
+* remove skipci job ([f444b0e](https://github.com/peaceiris/actions-gh-pages/commit/f444b0ede2b23bdd191ff9a5070ebbf61ec4ff31))
+* Update Dependabot config file (#330) ([c4529a5](https://github.com/peaceiris/actions-gh-pages/commit/c4529a59aa0e12bf828918aa16a7d456a1366b40)), closes [#330](https://github.com/peaceiris/actions-gh-pages/issues/330)
+
+### deps
+
+* Add eslint plugins for prettier (#323) ([6b188a8](https://github.com/peaceiris/actions-gh-pages/commit/6b188a80225f18bbcdc7cf5f708edacdf2190f40)), closes [#323](https://github.com/peaceiris/actions-gh-pages/issues/323)
+* bump @actions/github from 2.1.1 to 2.2.0 (#287) ([d6f110c](https://github.com/peaceiris/actions-gh-pages/commit/d6f110ce1e8b94e7ba3786e3d3bdf6858a8d0e06)), closes [#287](https://github.com/peaceiris/actions-gh-pages/issues/287)
+* bump @actions/github from 2.2.0 to 3.0.0 (#342) ([3721310](https://github.com/peaceiris/actions-gh-pages/commit/37213103b17e431217c197945d16fc9dc0cc44bf)), closes [#342](https://github.com/peaceiris/actions-gh-pages/issues/342)
+* bump @actions/github from 3.0.0 to 4.0.0 (#372) ([4fd6bd9](https://github.com/peaceiris/actions-gh-pages/commit/4fd6bd94b693b5734ae0ba84ef14e6813bb9d67d)), closes [#372](https://github.com/peaceiris/actions-gh-pages/issues/372)
+* bump @types/jest from 25.2.1 to 25.2.2 (#299) ([df4a516](https://github.com/peaceiris/actions-gh-pages/commit/df4a516dab432cb497694c4cf45ad472f8294f07)), closes [#299](https://github.com/peaceiris/actions-gh-pages/issues/299)
+* bump @types/jest from 25.2.2 to 25.2.3 (#310) ([5a8b86f](https://github.com/peaceiris/actions-gh-pages/commit/5a8b86ffc36586f60e5a3c55d1081c5a98b5a788)), closes [#310](https://github.com/peaceiris/actions-gh-pages/issues/310)
+* bump @types/jest from 25.2.3 to 26.0.0 (#346) ([7ddf1f7](https://github.com/peaceiris/actions-gh-pages/commit/7ddf1f7f9009f1705ef5d83a5d1b1bfd8de02729)), closes [#346](https://github.com/peaceiris/actions-gh-pages/issues/346)
+* bump @types/jest from 26.0.0 to 26.0.3 (#367) ([31b8c32](https://github.com/peaceiris/actions-gh-pages/commit/31b8c32f32fa1b2ea8f9274237e7062f2c437b8b)), closes [#367](https://github.com/peaceiris/actions-gh-pages/issues/367)
+* bump @types/jest from 26.0.3 to 26.0.4 (#380) ([b882ee3](https://github.com/peaceiris/actions-gh-pages/commit/b882ee3b2a0d236e04e53290df2795306e43ae80)), closes [#380](https://github.com/peaceiris/actions-gh-pages/issues/380)
+* bump @types/js-yaml from 3.12.3 to 3.12.4 (#301) ([489eacc](https://github.com/peaceiris/actions-gh-pages/commit/489eaccb268dd77d3685609841e0467e0e3329fd)), closes [#301](https://github.com/peaceiris/actions-gh-pages/issues/301)
+* bump @types/node from 12.12.37 to 12.12.38 (#284) ([f621c70](https://github.com/peaceiris/actions-gh-pages/commit/f621c70917d7eebb43449691d750c7966a2e7d64)), closes [#284](https://github.com/peaceiris/actions-gh-pages/issues/284)
+* bump @types/node from 12.12.38 to 12.12.41 (#315) ([a4f1f94](https://github.com/peaceiris/actions-gh-pages/commit/a4f1f945d96a7a1d22346d57ec17731466106330)), closes [#315](https://github.com/peaceiris/actions-gh-pages/issues/315)
+* bump @types/node from 12.12.41 to 12.12.42 (#316) ([e150ced](https://github.com/peaceiris/actions-gh-pages/commit/e150cedd9678abe94016d55ec0281b3153e88844)), closes [#316](https://github.com/peaceiris/actions-gh-pages/issues/316)
+* bump @types/node from 12.12.42 to 12.12.43 (#328) ([a17e9d4](https://github.com/peaceiris/actions-gh-pages/commit/a17e9d437e95afed23f8f84de4f87b0984b5466e)), closes [#328](https://github.com/peaceiris/actions-gh-pages/issues/328)
+* bump @types/node from 12.12.43 to 12.12.44 (#340) ([215b80c](https://github.com/peaceiris/actions-gh-pages/commit/215b80c84bd53b69051469d74e2c00cd7ea3f143)), closes [#340](https://github.com/peaceiris/actions-gh-pages/issues/340)
+* bump @types/node from 12.12.44 to 12.12.45 (#345) ([a117f83](https://github.com/peaceiris/actions-gh-pages/commit/a117f832ce1dbefef9f8cb2ef45984b2eacef3f4)), closes [#345](https://github.com/peaceiris/actions-gh-pages/issues/345)
+* bump @types/node from 12.12.45 to 12.12.47 (#347) ([852c3a3](https://github.com/peaceiris/actions-gh-pages/commit/852c3a3ca67bc00f225c607826ad3c9e5c8f4e4d)), closes [#347](https://github.com/peaceiris/actions-gh-pages/issues/347)
+* bump @types/node from 12.12.47 to 12.12.48 (#379) ([ef42af2](https://github.com/peaceiris/actions-gh-pages/commit/ef42af2aefe61c44e432aae82bf67b9a824e7dc2)), closes [#379](https://github.com/peaceiris/actions-gh-pages/issues/379)
+* bump @typescript-eslint/eslint-plugin from 2.30.0 to 2.31.0 (#281) ([83dbf81](https://github.com/peaceiris/actions-gh-pages/commit/83dbf819fbc6eb7fb761cdbf04388742abb33479)), closes [#281](https://github.com/peaceiris/actions-gh-pages/issues/281)
+* bump @typescript-eslint/eslint-plugin from 2.31.0 to 2.32.0 (#292) ([d307375](https://github.com/peaceiris/actions-gh-pages/commit/d30737529f6d979cb2897284381e1d19c29d067a)), closes [#292](https://github.com/peaceiris/actions-gh-pages/issues/292)
+* bump @typescript-eslint/eslint-plugin from 2.32.0 to 2.33.0 (#298) ([d8522ee](https://github.com/peaceiris/actions-gh-pages/commit/d8522eea61493844fb74db00f40a74f2fbe6d192)), closes [#298](https://github.com/peaceiris/actions-gh-pages/issues/298)
+* bump @typescript-eslint/eslint-plugin from 2.33.0 to 2.34.0 (#311) ([2076093](https://github.com/peaceiris/actions-gh-pages/commit/2076093b9327451fdb6b692b0212826f4be17cb9)), closes [#311](https://github.com/peaceiris/actions-gh-pages/issues/311)
+* bump @typescript-eslint/parser from 2.30.0 to 2.31.0 (#280) ([cbe2833](https://github.com/peaceiris/actions-gh-pages/commit/cbe2833e9b8a2c892d0e982736d859e23c32ec96)), closes [#280](https://github.com/peaceiris/actions-gh-pages/issues/280)
+* bump @typescript-eslint/parser from 2.31.0 to 2.32.0 (#291) ([e53cc4c](https://github.com/peaceiris/actions-gh-pages/commit/e53cc4cb81389ccd5df1623432f67acef1f4bd75)), closes [#291](https://github.com/peaceiris/actions-gh-pages/issues/291)
+* bump @typescript-eslint/parser from 2.32.0 to 2.33.0 (#295) ([cf2e9ed](https://github.com/peaceiris/actions-gh-pages/commit/cf2e9edd2ab4bd7aae5229292462e81b67bb35b3)), closes [#295](https://github.com/peaceiris/actions-gh-pages/issues/295)
+* bump @typescript-eslint/parser from 2.33.0 to 2.34.0 (#307) ([e1eecfc](https://github.com/peaceiris/actions-gh-pages/commit/e1eecfc328a619462f51147c4c45e2d328b3df5d)), closes [#307](https://github.com/peaceiris/actions-gh-pages/issues/307)
+* bump @zeit/ncc from 0.22.1 to 0.22.2 (#308) ([c50767d](https://github.com/peaceiris/actions-gh-pages/commit/c50767dbfead29ef6bed2bc12e366aad237c59da)), closes [#308](https://github.com/peaceiris/actions-gh-pages/issues/308)
+* bump @zeit/ncc from 0.22.2 to 0.22.3 (#321) ([fcbee38](https://github.com/peaceiris/actions-gh-pages/commit/fcbee383554f244f698aa55d8c277436fc24b1aa)), closes [#321](https://github.com/peaceiris/actions-gh-pages/issues/321)
+* bump eslint-plugin-jest from 23.10.0 to 23.11.0 (#293) ([859ffbd](https://github.com/peaceiris/actions-gh-pages/commit/859ffbd0d0c3b21d8b85c37188078341575d9382)), closes [#293](https://github.com/peaceiris/actions-gh-pages/issues/293)
+* bump eslint-plugin-jest from 23.11.0 to 23.12.0 (#302) ([9597f4c](https://github.com/peaceiris/actions-gh-pages/commit/9597f4c0a9a0dff27658a7ffb092ca222f62efed)), closes [#302](https://github.com/peaceiris/actions-gh-pages/issues/302)
+* bump eslint-plugin-jest from 23.12.0 to 23.13.0 (#303) ([31d3feb](https://github.com/peaceiris/actions-gh-pages/commit/31d3feb0ee67298e9ac9218b716d516123be9a64)), closes [#303](https://github.com/peaceiris/actions-gh-pages/issues/303)
+* bump eslint-plugin-jest from 23.13.0 to 23.13.1 (#304) ([dcdf5dd](https://github.com/peaceiris/actions-gh-pages/commit/dcdf5ddc8b0b0ff2b59c6abd99a80b84ff9737b4)), closes [#304](https://github.com/peaceiris/actions-gh-pages/issues/304)
+* bump eslint-plugin-jest from 23.13.1 to 23.13.2 (#325) ([fef0123](https://github.com/peaceiris/actions-gh-pages/commit/fef0123d212bf1f2ef37fa762bae63825b62ccd6)), closes [#325](https://github.com/peaceiris/actions-gh-pages/issues/325)
+* bump eslint-plugin-jest from 23.13.2 to 23.16.0 (#361) ([b6801e6](https://github.com/peaceiris/actions-gh-pages/commit/b6801e6334bc9eb197a9efe8fe4c6576c467d9e5)), closes [#361](https://github.com/peaceiris/actions-gh-pages/issues/361)
+* bump eslint-plugin-jest from 23.16.0 to 23.17.1 (#364) ([a72f521](https://github.com/peaceiris/actions-gh-pages/commit/a72f52102f14f9336d047b98462fca9ca1e67baf)), closes [#364](https://github.com/peaceiris/actions-gh-pages/issues/364)
+* bump eslint-plugin-jest from 23.17.1 to 23.18.0 (#378) ([f2192db](https://github.com/peaceiris/actions-gh-pages/commit/f2192db227137977627bc563901aa3eb8c0dacbf)), closes [#378](https://github.com/peaceiris/actions-gh-pages/issues/378)
+* bump eslint-plugin-jest from 23.8.2 to 23.9.0 (#278) ([5b29ffa](https://github.com/peaceiris/actions-gh-pages/commit/5b29ffa40d5a99a66f4fba895d86aede7c641663)), closes [#278](https://github.com/peaceiris/actions-gh-pages/issues/278)
+* bump eslint-plugin-jest from 23.9.0 to 23.10.0 (#289) ([fd82b38](https://github.com/peaceiris/actions-gh-pages/commit/fd82b38c083cb2bffb0b40862df523c3b61f1314)), closes [#289](https://github.com/peaceiris/actions-gh-pages/issues/289)
+* bump eslint-plugin-prettier from 3.1.3 to 3.1.4 (#351) ([5d0c4db](https://github.com/peaceiris/actions-gh-pages/commit/5d0c4dbf3584e1e8adae859cf566304bbef9d0bd)), closes [#351](https://github.com/peaceiris/actions-gh-pages/issues/351)
+* bump git from 2.26.2 to 2.27.0 (#331) ([73cf1d1](https://github.com/peaceiris/actions-gh-pages/commit/73cf1d15d9eec3228688911bfcb5cad7a98af1de)), closes [#331](https://github.com/peaceiris/actions-gh-pages/issues/331)
+* bump jest-circus from 25.5.4 to 26.0.0 (#282) ([c5a0e44](https://github.com/peaceiris/actions-gh-pages/commit/c5a0e44f79522180ef23e04bc437a57938a3ddb6)), closes [#282](https://github.com/peaceiris/actions-gh-pages/issues/282)
+* bump jest-circus from 26.0.0 to 26.0.1 (#283) ([4b44fa2](https://github.com/peaceiris/actions-gh-pages/commit/4b44fa2951a2c33534ee51d97c37f56cc558bf29)), closes [#283](https://github.com/peaceiris/actions-gh-pages/issues/283)
+* bump jest-circus from 26.0.1 to 26.1.0 (#365) ([89628f0](https://github.com/peaceiris/actions-gh-pages/commit/89628f03108f88df9e013d5fc38edb2e0393c30f)), closes [#365](https://github.com/peaceiris/actions-gh-pages/issues/365)
+* bump js-yaml from 3.13.1 to 3.14.0 (#320) ([89c0c9c](https://github.com/peaceiris/actions-gh-pages/commit/89c0c9cbfa4ed82d2a0394603eb9755dd301cbf3)), closes [#320](https://github.com/peaceiris/actions-gh-pages/issues/320)
+* bump lint-staged from 10.2.10 to 10.2.11 (#354) ([3971a95](https://github.com/peaceiris/actions-gh-pages/commit/3971a95d5a8791f689855a603bd3a185fd51b669)), closes [#354](https://github.com/peaceiris/actions-gh-pages/issues/354)
+* bump lint-staged from 10.2.2 to 10.2.4 (#306) ([f0fa0c2](https://github.com/peaceiris/actions-gh-pages/commit/f0fa0c21ed2166f5deda1f2332f352d1fb3f89d9)), closes [#306](https://github.com/peaceiris/actions-gh-pages/issues/306)
+* bump lint-staged from 10.2.4 to 10.2.6 (#317) ([64f3c7f](https://github.com/peaceiris/actions-gh-pages/commit/64f3c7fc7f9d275599f8370415d8e57b5ff93705)), closes [#317](https://github.com/peaceiris/actions-gh-pages/issues/317)
+* bump lint-staged from 10.2.6 to 10.2.7 (#327) ([fe5636c](https://github.com/peaceiris/actions-gh-pages/commit/fe5636cf9590ebe01679f64b7b359c74c71ebe03)), closes [#327](https://github.com/peaceiris/actions-gh-pages/issues/327)
+* bump lint-staged from 10.2.7 to 10.2.8 (#337) ([1f596ab](https://github.com/peaceiris/actions-gh-pages/commit/1f596ab2b7992db213bae698af5ac00f1aaf644e)), closes [#337](https://github.com/peaceiris/actions-gh-pages/issues/337)
+* bump lint-staged from 10.2.8 to 10.2.9 (#338) ([96f4391](https://github.com/peaceiris/actions-gh-pages/commit/96f4391cd54fe23957e72cc42aec60cd5a43cb2b)), closes [#338](https://github.com/peaceiris/actions-gh-pages/issues/338)
+* bump lint-staged from 10.2.9 to 10.2.10 (#350) ([738b4de](https://github.com/peaceiris/actions-gh-pages/commit/738b4dea9f4f6b6d8d04b384b89ffe91b2e8b9d3)), closes [#350](https://github.com/peaceiris/actions-gh-pages/issues/350)
+* bump node from 12.16.3 to 12.17.0 (#332) ([ce787cf](https://github.com/peaceiris/actions-gh-pages/commit/ce787cf0519f58fd03bfc967e6e8c1df46d028e1)), closes [#332](https://github.com/peaceiris/actions-gh-pages/issues/332)
+* bump node from 12.17.0 to 12.18.0 (#335) ([929a7d0](https://github.com/peaceiris/actions-gh-pages/commit/929a7d0a6aee6813b6b6e7e7a9547676f1d52e8d)), closes [#335](https://github.com/peaceiris/actions-gh-pages/issues/335)
+* bump node from 12.18.0 to 12.18.1 (#356) ([2165a2b](https://github.com/peaceiris/actions-gh-pages/commit/2165a2b5fcda87928bfd53d549fca96d9b346565)), closes [#356](https://github.com/peaceiris/actions-gh-pages/issues/356)
+* bump node from 12.18.1 to 12.18.2 (#376) ([c6eab41](https://github.com/peaceiris/actions-gh-pages/commit/c6eab4153bb1e9603b6599ce37aa10647c70d6d0)), closes [#376](https://github.com/peaceiris/actions-gh-pages/issues/376)
+* bump standard-version from 7.1.0 to 8.0.0 (#286) ([8380af7](https://github.com/peaceiris/actions-gh-pages/commit/8380af7d49a5567cf2300088dbd58dd9f8537b58)), closes [#286](https://github.com/peaceiris/actions-gh-pages/issues/286)
+* bump ts-jest from 25.4.0 to 25.5.0 (#285) ([377bddc](https://github.com/peaceiris/actions-gh-pages/commit/377bddc67b49f5a5f88724850ec8224103ff7447)), closes [#285](https://github.com/peaceiris/actions-gh-pages/issues/285)
+* bump ts-jest from 25.5.0 to 25.5.1 (#290) ([ce66f63](https://github.com/peaceiris/actions-gh-pages/commit/ce66f63638ff5beb1da6d3a6aa99c7ff7b0e824d)), closes [#290](https://github.com/peaceiris/actions-gh-pages/issues/290)
+* bump typescript from 3.8.3 to 3.9.2 (#294) ([8cb34fe](https://github.com/peaceiris/actions-gh-pages/commit/8cb34fe1e515a6b5891fc3124a02995863e67c3e)), closes [#294](https://github.com/peaceiris/actions-gh-pages/issues/294)
+* bump typescript from 3.9.2 to 3.9.3 (#314) ([54e6a6f](https://github.com/peaceiris/actions-gh-pages/commit/54e6a6f17245c171ad28062086337a247e203a3a)), closes [#314](https://github.com/peaceiris/actions-gh-pages/issues/314)
+* bump typescript from 3.9.3 to 3.9.5 (#343) ([2d9155e](https://github.com/peaceiris/actions-gh-pages/commit/2d9155e27f768eb70ce347c021e176ee9e31aac7)), closes [#343](https://github.com/peaceiris/actions-gh-pages/issues/343)
+* bump typescript from 3.9.5 to 3.9.6 (#374) ([ad23393](https://github.com/peaceiris/actions-gh-pages/commit/ad23393e2439c2612c01ed79b7ae625dca5b9e80)), closes [#374](https://github.com/peaceiris/actions-gh-pages/issues/374)
+
+### docs
+
+* Add ubuntu-20.04 ([3de5b23](https://github.com/peaceiris/actions-gh-pages/commit/3de5b2308f0e86ffe1683fc80b8e4bc4d229344b))
+* Add use case (#371) ([f86ecdf](https://github.com/peaceiris/actions-gh-pages/commit/f86ecdfe860e15b50844cbf7c49e5bbbdfb3b560)), closes [#371](https://github.com/peaceiris/actions-gh-pages/issues/371)
+* bump actions/cache from v1 to v2 ([688a3b3](https://github.com/peaceiris/actions-gh-pages/commit/688a3b3d0c753aa3de216adecbf571b5518702ab))
+* bump actions/setup-node from v1 to v2 ([d2b7688](https://github.com/peaceiris/actions-gh-pages/commit/d2b7688ae305ac4fbb9974684b211bc96152cdd7))
+* bump hugo to 0.71.1 ([3203c05](https://github.com/peaceiris/actions-gh-pages/commit/3203c05a3af8d0c0323aad8603748b9423bf8ab3))
+* enhance external repository section ([938e1fa](https://github.com/peaceiris/actions-gh-pages/commit/938e1fa9f5add2bb580687ed980ee031d6506768)), closes [#245](https://github.com/peaceiris/actions-gh-pages/issues/245) [#318](https://github.com/peaceiris/actions-gh-pages/issues/318)
+* Fix image size ([c639d96](https://github.com/peaceiris/actions-gh-pages/commit/c639d964e8e41afd4027c60e7ca4e7001bc1eb30))
+* remove Dependabot status badge ([6cad446](https://github.com/peaceiris/actions-gh-pages/commit/6cad446381e55725049b2be9c37f7a1cd57c254e))
+* Remove feed badge ([e27e4b7](https://github.com/peaceiris/actions-gh-pages/commit/e27e4b71406226b838bba743da389e750fd4e7cc))
+* remove gitbook (#357) ([51c7823](https://github.com/peaceiris/actions-gh-pages/commit/51c782389ac9622c164fc3af2c86c7d26d6eb749)), closes [#357](https://github.com/peaceiris/actions-gh-pages/issues/357)
+* remove link to v2 ([58b4bf3](https://github.com/peaceiris/actions-gh-pages/commit/58b4bf398144cdfeee6137f447993e145bfbf6de))
+* update Hugo workflow example ([ea6d487](https://github.com/peaceiris/actions-gh-pages/commit/ea6d487bc7f138e3e0124d47d540474ca58c54cc))
+* Use yarn install --frozen-lockfile (#288) ([a820967](https://github.com/peaceiris/actions-gh-pages/commit/a8209677e6bb059b97347a797af38d2202a186b1)), closes [#288](https://github.com/peaceiris/actions-gh-pages/issues/288)
+
+### feat
+
+* enhance log message (#383) ([2e97684](https://github.com/peaceiris/actions-gh-pages/commit/2e976845a683a2a44219b06cf6f30f068658c987)), closes [#383](https://github.com/peaceiris/actions-gh-pages/issues/383) [#87](https://github.com/peaceiris/actions-gh-pages/issues/87) [#359](https://github.com/peaceiris/actions-gh-pages/issues/359)
+
+### fix
+
+* order of checks in setGithubToken (#382) ([31cdbe5](https://github.com/peaceiris/actions-gh-pages/commit/31cdbe5222e7cd3f91a1d75bd38b0589a8fb8c3d)), closes [#382](https://github.com/peaceiris/actions-gh-pages/issues/382) [#358](https://github.com/peaceiris/actions-gh-pages/issues/358) [#359](https://github.com/peaceiris/actions-gh-pages/issues/359)
+
+
+
 ## [3.6.1](https://github.com/peaceiris/actions-gh-pages/compare/v3.6.0...v3.6.1) (2020-05-04)
 
 

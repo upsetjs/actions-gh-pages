@@ -1,25 +1,27 @@
 name: 'Dev Image CI'
 
 on:
+  workflow_dispatch:
+  schedule:
+    - cron: '11 11 * * *'
   push:
     branches:
-      - master
+      - main
     paths:
       - '.github/workflows/dev-image.yml'
       - '.dockerignore'
       - '.nvmrc'
       - 'Dockerfile'
       - 'Makefile'
+      - 'docker-compose.yml'
   pull_request:
-    types:
-      - opened
-      - synchronize
     paths:
       - '.github/workflows/dev-image.yml'
       - '.dockerignore'
       - '.nvmrc'
       - 'Dockerfile'
       - 'Makefile'
+      - 'docker-compose.yml'
 
 jobs:
   skipci:
@@ -32,6 +34,13 @@ jobs:
     if: contains(github.event.head_commit.message, '[skip ci]') == false
     steps:
       - uses: actions/checkout@v2
+      - name: Login to Packages
+        run: echo '${{ secrets.GITHUB_TOKEN }}' | docker login 'docker.pkg.github.com' -u 'peaceiris' --password-stdin
+      - run: docker-compose pull --quiet
+        if: github.event_name == 'pull_request'
       - run: make build
-      - run: make cirun cmd="npm ci"
-      - run: make ciall
+      - run: docker images
+      - run: make ci
+      - run: make all
+      - run: docker-compose push
+        if: github.ref == 'refs/heads/main'

@@ -4,6 +4,7 @@ export interface Inputs {
   readonly PersonalToken: string;
   readonly PublishBranch: string;
   readonly PublishDir: string;
+  readonly DestinationDir: string;
   readonly ExternalRepository: string;
   readonly AllowEmptyCommit: boolean;
   readonly KeepFiles: boolean;
@@ -17,6 +18,7 @@ export interface Inputs {
   readonly TagMessage: string;
   readonly DisableNoJekyll: boolean;
   readonly CNAME: string;
+  readonly ExcludeAssets: string;
 }
 
 export interface CmdResult {

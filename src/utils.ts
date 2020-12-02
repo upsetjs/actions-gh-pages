@@ -23,40 +23,31 @@ export async function getWorkDirName(unixTime: string): Promise<string> {
   return workDirName;
 }
 
-export async function createWorkDir(workDirName: string): Promise<void> {
-  await io.mkdirP(workDirName);
-  core.debug(`Created: ${workDirName}`);
+export async function createDir(dirPath: string): Promise<void> {
+  await io.mkdirP(dirPath);
+  core.debug(`Created directory ${dirPath}`);
   return;
 }
 
-export async function addNoJekyll(
-  workDir: string,
-  DisableNoJekyll: boolean,
-  PublishBranch: string
-): Promise<void> {
+export async function addNoJekyll(workDir: string, DisableNoJekyll: boolean): Promise<void> {
   if (DisableNoJekyll) {
     return;
   }
-  if (PublishBranch === 'master' || PublishBranch === 'gh-pages') {
-    const filepath = path.join(workDir, '.nojekyll');
-    if (fs.existsSync(filepath)) {
-      return;
-    }
-    fs.closeSync(fs.openSync(filepath, 'w'));
-    core.info(`[INFO] Created ${filepath}`);
+  const filepath = path.join(workDir, '.nojekyll');
+  if (fs.existsSync(filepath)) {
+    return;
   }
+  fs.closeSync(fs.openSync(filepath, 'w'));
+  core.info(`[INFO] Created ${filepath}`);
 }
 
-export async function addCNAME(
-  workDir: string,
-  content: string
-): Promise<void> {
+export async function addCNAME(workDir: string, content: string): Promise<void> {
   if (content === '') {
     return;
   }
   const filepath = path.join(workDir, 'CNAME');
   if (fs.existsSync(filepath)) {
-    core.warning(`CNAME already exists, skip adding CNAME`);
+    core.info(`CNAME already exists, skip adding CNAME`);
     return;
   }
   fs.writeFileSync(filepath, content + '\n');

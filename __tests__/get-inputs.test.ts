@@ -9,9 +9,8 @@ beforeEach(() => {
   jest.resetModules();
   process.stdout.write = jest.fn();
 
-  const doc = yaml.safeLoad(
-    fs.readFileSync(__dirname + '/../action.yml', 'utf8')
-  );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const doc: any = yaml.safeLoad(fs.readFileSync(__dirname + '/../action.yml', 'utf8'));
   Object.keys(doc.inputs).forEach(name => {
     const envVar = `INPUT_${name.replace(/ /g, '_').toUpperCase()}`;
     process.env[envVar] = doc.inputs[name]['default'];
@@ -19,9 +18,8 @@ beforeEach(() => {
 });
 
 afterEach(() => {
-  const doc = yaml.safeLoad(
-    fs.readFileSync(__dirname + '/../action.yml', 'utf8')
-  );
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const doc: any = yaml.safeLoad(fs.readFileSync(__dirname + '/../action.yml', 'utf8'));
   Object.keys(doc.inputs).forEach(name => {
     const envVar = `INPUT_${name.replace(/ /g, '_').toUpperCase()}`;
     console.debug(`delete ${envVar}\t${process.env[envVar]}`);
@@ -44,6 +42,7 @@ function getInputsLog(authMethod: string, inps: Inputs): string {
 [INFO] ${authMethod}: true
 [INFO] PublishBranch: ${inps.PublishBranch}
 [INFO] PublishDir: ${inps.PublishDir}
+[INFO] DestinationDir: ${inps.DestinationDir}
 [INFO] ExternalRepository: ${inps.ExternalRepository}
 [INFO] AllowEmptyCommit: ${inps.AllowEmptyCommit}
 [INFO] KeepFiles: ${inps.KeepFiles}
@@ -56,6 +55,7 @@ function getInputsLog(authMethod: string, inps: Inputs): string {
 [INFO] TagMessage: ${inps.TagMessage}
 [INFO] EnableJekyll (DisableNoJekyll): ${inps.DisableNoJekyll}
 [INFO] CNAME: ${inps.CNAME}
+[INFO] ExcludeAssets ${inps.ExcludeAssets}
 `;
 }
 
@@ -111,6 +111,7 @@ describe('getInputs()', () => {
     expect(inps.PersonalToken).toMatch('');
     expect(inps.PublishBranch).toMatch('gh-pages');
     expect(inps.PublishDir).toMatch('public');
+    expect(inps.DestinationDir).toMatch('');
     expect(inps.ExternalRepository).toMatch('');
     expect(inps.AllowEmptyCommit).toBe(false);
     expect(inps.KeepFiles).toBe(false);
@@ -123,6 +124,7 @@ describe('getInputs()', () => {
     expect(inps.TagMessage).toMatch('');
     expect(inps.DisableNoJekyll).toBe(false);
     expect(inps.CNAME).toMatch('');
+    expect(inps.ExcludeAssets).toMatch('.github');
   });
 
   test('get spec inputs', () => {
@@ -131,6 +133,7 @@ describe('getInputs()', () => {
     process.env['INPUT_PERSONAL_TOKEN'] = 'test_personal_token';
     process.env['INPUT_PUBLISH_BRANCH'] = 'master';
     process.env['INPUT_PUBLISH_DIR'] = 'out';
+    process.env['INPUT_DESTINATION_DIR'] = 'subdir';
     process.env['INPUT_EXTERNAL_REPOSITORY'] = 'user/repo';
     process.env['INPUT_ALLOW_EMPTY_COMMIT'] = 'true';
     process.env['INPUT_KEEP_FILES'] = 'true';
@@ -143,6 +146,7 @@ describe('getInputs()', () => {
     process.env['INPUT_TAG_MESSAGE'] = 'Deployment v1.2.3';
     process.env['INPUT_DISABLE_NOJEKYLL'] = 'true';
     process.env['INPUT_CNAME'] = 'github.com';
+    process.env['INPUT_EXCLUDE_ASSETS'] = '.github';
 
     const inps: Inputs = getInputs();
 
@@ -151,6 +155,7 @@ describe('getInputs()', () => {
     expect(inps.PersonalToken).toMatch('test_personal_token');
     expect(inps.PublishBranch).toMatch('master');
     expect(inps.PublishDir).toMatch('out');
+    expect(inps.DestinationDir).toMatch('subdir');
     expect(inps.ExternalRepository).toMatch('user/repo');
     expect(inps.AllowEmptyCommit).toBe(true);
     expect(inps.KeepFiles).toBe(true);
@@ -163,6 +168,7 @@ describe('getInputs()', () => {
     expect(inps.TagMessage).toMatch('Deployment v1.2.3');
     expect(inps.DisableNoJekyll).toBe(true);
     expect(inps.CNAME).toMatch('github.com');
+    expect(inps.ExcludeAssets).toMatch('.github');
   });
 
   test('get spec inputs enable_jekyll', () => {

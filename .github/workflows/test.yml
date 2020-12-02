@@ -3,28 +3,20 @@ name: 'Test'
 on:
   push:
     branches:
-      - master
+      - main
     paths-ignore:
       - '*.md'
   pull_request:
-    types:
-      - opened
-      - synchronize
     paths-ignore:
       - '*.md'
 
 jobs:
-  skipci:
-    runs-on: ubuntu-18.04
-    steps:
-      - run: echo "[skip ci] ${{ contains(github.event.head_commit.message, '[skip ci]') }}"
-
   test:
     runs-on: ${{ matrix.os }}
-    if: contains(github.event.head_commit.message, '[skip ci]') == false
     strategy:
       matrix:
         os:
+          - 'ubuntu-20.04'
           - 'ubuntu-18.04'
           - 'ubuntu-16.04'
           - 'macos-latest'
@@ -42,7 +34,7 @@ jobs:
         id: nvm
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '${{ steps.nvm.outputs.NVMRC }}'
 
@@ -55,6 +47,15 @@ jobs:
           git --version
 
       - run: npm ci
+
+      - name: npm audit
+        if: startsWith(matrix.os, 'ubuntu-18.04')
+        run: |
+          npm audit > ./audit.log || true
+          if ! [ "$(cat ./audit.log | wc -l)" = 1 ]; then
+            echo "::warning::$(cat ./audit.log)"
+          fi
+          rm ./audit.log
 
       - name: Run prettier
         if: startsWith(matrix.os, 'ubuntu-18.04')
@@ -72,7 +73,7 @@ jobs:
           name: coverage-${{ matrix.os }}
           path: coverage
 
-      - uses: codecov/codecov-action@v1
+      - uses: codecov/codecov-action@v1.0.15
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
@@ -80,26 +81,26 @@ jobs:
         run: npm run build
 
       - name: Remove lint-staged husky
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         run: |
           npm uninstall lint-staged husky
           git checkout package-lock.json package.json
 
       - name: Setup mdBook
-        if: github.ref == 'refs/heads/master'
-        uses: peaceiris/actions-mdbook@v1
+        if: github.ref == 'refs/heads/main'
+        uses: peaceiris/actions-mdbook@v1.1.13
         with:
           mdbook-version: '0.3.7'
 
       - name: Build site
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'
         working-directory: ./test_projects/mdbook
         run: mdbook build
 
       - name: Deploy
         if: |
           startsWith(matrix.os, 'ubuntu-18.04') &&
-          github.ref == 'refs/heads/master'
+          github.ref == 'refs/heads/main'
         uses: ./
         with:
           # deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
@@ -118,7 +119,7 @@ jobs:
       - name: Deploy
         if: |
           startsWith(matrix.os, 'ubuntu-16.04') &&
-          github.ref == 'refs/heads/master'
+          github.ref == 'refs/heads/main'
         uses: ./
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
@@ -136,7 +137,7 @@ jobs:
       - name: Deploy
         if: |
           startsWith(matrix.os, 'macos') &&
-          github.ref == 'refs/heads/master'
+          github.ref == 'refs/heads/main'
         uses: ./
         with:
           deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
@@ -155,7 +156,7 @@ jobs:
       - name: Deploy
         if: |
           startsWith(matrix.os, 'windows') &&
-          github.ref == 'refs/heads/master'
+          github.ref == 'refs/heads/main'
         uses: ./
         with:
           # deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
@@ -171,71 +172,10 @@ jobs:
           user_email: 'github-actions[bot]@users.noreply.github.com'
           # commit_message: ${{ github.event.head_commit.message }}
 
-  test-ubuntu-2004:
-    runs-on: 'ubuntu-18.04'
-    if: contains(github.event.head_commit.message, '[skip ci]') == false
-    container:
-      image: 'ubuntu:20.04'
-    steps:
-      - name: Install deps
-        run: |
-          apt update
-          apt install -y software-properties-common
-          add-apt-repository ppa:git-core/ppa
-          apt update
-          apt install -y \
-            git \
-            ssh
-
-      - uses: actions/checkout@v2
-
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "${GITHUB_CONTEXT}"
-
-      - name: Read .nvmrc
-        run: echo "::set-output name=NVMRC::$(cat .nvmrc)"
-        id: nvm
-
-      - name: Setup Node
-        uses: actions/setup-node@v1
-        with:
-          node-version: '${{ steps.nvm.outputs.NVMRC }}'
-
-      - run: npm i -g npm
-
-      - name: Dump version
-        run: |
-          node -v
-          npm --version
-          git --version
-
-      - run: npm ci
-      - run: npm test
-
-      - name: Run ncc
-        run: npm run build
-
-      - name: Remove lint-staged husky
-        if: github.ref == 'refs/heads/master'
-        run: |
-          npm uninstall lint-staged husky
-          git checkout package-lock.json package.json
-
-      - name: Setup mdBook
-        if: github.ref == 'refs/heads/master'
-        uses: peaceiris/actions-mdbook@v1
-        with:
-          mdbook-version: '0.3.7'
-
-      - name: Build site
-        if: github.ref == 'refs/heads/master'
-        working-directory: ./test_projects/mdbook
-        run: mdbook build
-
       - name: Deploy
-        if: github.ref == 'refs/heads/master'
+        if: |
+          startsWith(matrix.os, 'ubuntu-20.04') &&
+          github.ref == 'refs/heads/main'
         uses: ./
         with:
           # deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}

@@ -1,27 +1,20 @@
-[![license](https://img.shields.io/github/license/peaceiris/actions-gh-pages.svg)](https://github.com/peaceiris/actions-gh-pages/blob/master/LICENSE)
-[![release](https://img.shields.io/github/release/peaceiris/actions-gh-pages.svg)](https://github.com/peaceiris/actions-gh-pages/releases/latest)
-[![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-gh-pages.svg)](https://github.com/peaceiris/actions-gh-pages/releases)
-![Test](https://github.com/peaceiris/actions-gh-pages/workflows/Test/badge.svg?branch=master&event=push)
-[![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-gh-pages/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-gh-pages)
-[![Release Feed](https://img.shields.io/badge/release-feed-yellow)](https://github.com/peaceiris/actions-gh-pages/releases.atom)
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=peaceiris/actions-gh-pages)](https://dependabot.com)
+## GitHub Actions for GitHub Pages
 
 <img width="400" alt="GitHub Actions for deploying to GitHub Pages with Static Site Generators" src="./images/ogp.svg">
 
-This Action has been migrated to a TypeScript Action (version 3).
-The old Docker Action is [peaceiris/actions-gh-pages@v2](https://github.com/peaceiris/actions-gh-pages/tree/v2)
-
-
-
-## GitHub Actions for GitHub Pages
+[![license](https://img.shields.io/github/license/peaceiris/actions-gh-pages.svg)](https://github.com/peaceiris/actions-gh-pages/blob/main/LICENSE)
+[![release](https://img.shields.io/github/release/peaceiris/actions-gh-pages.svg)](https://github.com/peaceiris/actions-gh-pages/releases/latest)
+[![GitHub release date](https://img.shields.io/github/release-date/peaceiris/actions-gh-pages.svg)](https://github.com/peaceiris/actions-gh-pages/releases)
+![Test](https://github.com/peaceiris/actions-gh-pages/workflows/Test/badge.svg?branch=main&event=push)
+![Code Scanning](https://github.com/peaceiris/actions-gh-pages/workflows/Code%20Scanning/badge.svg?event=push)
+[![CodeFactor](https://www.codefactor.io/repository/github/peaceiris/actions-gh-pages/badge)](https://www.codefactor.io/repository/github/peaceiris/actions-gh-pages)
 
 This is a **GitHub Action** to deploy your static files to **GitHub Pages**.
-This deploy action can be combined simply and freely with [Static Site Generators]. (Hugo, MkDocs, Gatsby, GitBook, mdBook, and so on.)
+This deploy action can be combined simply and freely with [Static Site Generators]. (Hugo, MkDocs, Gatsby, mdBook, Next, Nuxt, and so on.)
 
 [Static Site Generators]: https://www.staticgen.com/
 
 The next example step will deploy `./public` directory to the remote `gh-pages` branch.
-
 
 ```yaml
 - name: Deploy
@@ -41,7 +34,9 @@ Three tokens are supported.
 | `deploy_key` | ✅️ | ✅️ | SSH | Necessary |
 | `personal_token` | ✅️ | ✅️ | HTTPS | Necessary |
 
-Notes: Actually, the `GITHUB_TOKEN` works for deploying to GitHub Pages but it has still some limitations. For the first deployment, we need to select the `gh-pages` branch or `master` branch on the repository settings tab. See [First Deployment with `GITHUB_TOKEN`](#%EF%B8%8F-first-deployment-with-github_token)
+Notes: Actually, the `GITHUB_TOKEN` works for deploying to GitHub Pages but it has still some limitations.
+For the first deployment, we need to select the `gh-pages` branch or another branch on the repository settings tab.
+See [First Deployment with `GITHUB_TOKEN`](#%EF%B8%8F-first-deployment-with-github_token)
 
 ### Supported Platforms
 
@@ -49,6 +44,7 @@ All Actions runners: Linux (Ubuntu), macOS, and Windows are supported.
 
 | runs-on | `github_token` | `deploy_key` | `personal_token` |
 |---|:---:|:---:|:---:|
+| ubuntu-20.04 | ✅️ | ✅️ | ✅️ |
 | ubuntu-18.04 | ✅️ | ✅️ | ✅️ |
 | ubuntu-16.04 | ✅️ | ✅️ | ✅️ |
 | macos-latest | ✅️ | ✅️ | ✅️ |
@@ -65,20 +61,20 @@ All Actions runners: Linux (Ubuntu), macOS, and Windows are supported.
 
 
 - [Getting started](#getting-started)
-  - [⭐️ Repository type - Project](#%EF%B8%8F-repository-type---project)
-  - [⭐️ Repository type - User and Organization](#%EF%B8%8F-repository-type---user-and-organization)
 - [Options](#options)
-  - [⭐️ `github_token`](#%EF%B8%8F-github_token)
-  - [⭐️ `deploy_key`](#%EF%B8%8F-deploy_key)
-  - [⭐️ `personal_token`](#%EF%B8%8F-personal_token)
-  - [⭐️ `publish_branch`](#%EF%B8%8F-publish_branch)
-  - [⭐️ `publish_dir`](#%EF%B8%8F-publish_dir)
-  - [⭐️ CNAME](#%EF%B8%8F-cname)
-  - [⭐️ Enable Built-in Jekyll](#%EF%B8%8F-enable-built-in-jekyll)
-  - [⭐️ Allow empty commits](#%EF%B8%8F-allow-empty-commits)
-  - [⭐️ Keeping existing files](#%EF%B8%8F-keeping-existing-files)
-  - [⭐️ Deploy to external repository](#%EF%B8%8F-deploy-to-external-repository)
-  - [⭐️ Force orphan](#%EF%B8%8F-force-orphan)
+  - [⭐️ Set Runner's Access Token `github_token`](#%EF%B8%8F-set-runners-access-token-github_token)
+  - [⭐️ Set SSH Private Key `deploy_key`](#%EF%B8%8F-set-ssh-private-key-deploy_key)
+  - [⭐️ Set Personal Access Token `personal_token`](#%EF%B8%8F-set-personal-access-token-personal_token)
+  - [⭐️ Set Another GitHub Pages Branch `publish_branch`](#%EF%B8%8F-set-another-github-pages-branch-publish_branch)
+  - [⭐️ Source Directory `publish_dir`](#%EF%B8%8F-source-directory-publish_dir)
+  - [⭐️ Deploy to Subdirectory `destination_dir`](#%EF%B8%8F-deploy-to-subdirectory-destination_dir)
+  - [⭐️ Filter publishing assets `exclude_assets`](#%EF%B8%8F-filter-publishing-assets-exclude_assets)
+  - [⭐️ Add CNAME file `cname`](#%EF%B8%8F-add-cname-file-cname)
+  - [⭐️ Enable Built-in Jekyll `enable_jekyll`](#%EF%B8%8F-enable-built-in-jekyll-enable_jekyll)
+  - [⭐️ Allow empty commits `allow_empty_commit`](#%EF%B8%8F-allow-empty-commits-allow_empty_commit)
+  - [⭐️ Keeping existing files `keep_files`](#%EF%B8%8F-keeping-existing-files-keep_files)
+  - [⭐️ Deploy to external repository `external_repository`](#%EF%B8%8F-deploy-to-external-repository-external_repository)
+  - [⭐️ Force orphan `force_orphan`](#%EF%B8%8F-force-orphan-force_orphan)
   - [⭐️ Set Git username and email](#%EF%B8%8F-set-git-username-and-email)
   - [⭐️ Set custom commit message](#%EF%B8%8F-set-custom-commit-message)
   - [⭐️ Create Git tag](#%EF%B8%8F-create-git-tag)
@@ -86,6 +82,7 @@ All Actions runners: Linux (Ubuntu), macOS, and Windows are supported.
   - [⭐️ Create SSH Deploy Key](#%EF%B8%8F-create-ssh-deploy-key)
   - [⭐️ First Deployment with `GITHUB_TOKEN`](#%EF%B8%8F-first-deployment-with-github_token)
   - [⭐️ Use the latest and specific release](#%EF%B8%8F-use-the-latest-and-specific-release)
+  - [⭐️ Schedule and Manual Deployment](#%EF%B8%8F-schedule-and-manual-deployment)
 - [Examples](#examples)
   - [⭐️ Static Site Generators with Node.js](#%EF%B8%8F-static-site-generators-with-nodejs)
   - [⭐️ Gatsby](#%EF%B8%8F-gatsby)
@@ -107,11 +104,9 @@ All Actions runners: Linux (Ubuntu), macOS, and Windows are supported.
 
 ## Getting started
 
-### ⭐️ Repository type - Project
+Add your workflow file `.github/workflows/gh-pages.yml` and push it to your remote default branch.
 
-Add your workflow file `.github/workflows/gh-pages.yml` and push to the remote master branch.
-
-An example workflow for Hugo.
+Here is an example workflow for Hugo.
 
 - [peaceiris/actions-hugo: GitHub Actions for Hugo](https://github.com/peaceiris/actions-hugo)
 
@@ -123,7 +118,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main  # Set a branch name to trigger deployment
 
 jobs:
   deploy:
@@ -131,13 +126,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          submodules: true  # Fetch Hugo themes
+          submodules: true  # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.68.3'
+          hugo-version: '0.74.3'
 
       - name: Build
         run: hugo --minify
@@ -149,46 +144,9 @@ jobs:
           publish_dir: ./public
 ```
 
-The above example is for [Project Pages sites]. (`<username>/<project_name>` repository)
-
 | Actions log overview | GitHub Pages log |
 |---|---|
 | ![](./images/log_overview.jpg) | ![](./images/log_success.jpg) |
-
-### ⭐️ Repository type - User and Organization
-
-For [User and Organization Pages sites] (`<username>/<username>.github.io` repository),
-we have to set `master` branch to `publish_branch`.
-
-A default value of `publish_branch` is `gh-pages`.
-
-```yaml
-on:
-  push:
-    branches:
-      - source  # default branch
-
-jobs:
-  deploy:
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkout@v2
-
-      - run: somebuild
-
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-          publish_branch: master  # deploying branch
-```
-
-[Project Pages sites]: https://help.github.com/en/articles/user-organization-and-project-pages#project-pages-sites
-[User and Organization Pages sites]: https://help.github.com/en/articles/user-organization-and-project-pages#user-and-organization-pages-sites
-
-![Change default branch](./images/default-branch.jpg)
-![Change default branch](./images/user_repo.jpg)
 
 <div align="right">
 <a href="#table-of-contents">Back to TOC ☝️</a>
@@ -198,7 +156,7 @@ jobs:
 
 ## Options
 
-### ⭐️ `github_token`
+### ⭐️ Set Runner's Access Token `github_token`
 
 **This option is for `GITHUB_TOKEN`, not a personal access token.**
 
@@ -214,7 +172,7 @@ GitHub Actions runner automatically creates a `GITHUB_TOKEN` secret to use in yo
 
 For more details about `GITHUB_TOKEN`: [Authenticating with the GITHUB_TOKEN - GitHub Help](https://help.github.com/en/actions/configuring-and-managing-workflows/authenticating-with-the-github_token)
 
-### ⭐️ `deploy_key`
+### ⭐️ Set SSH Private Key `deploy_key`
 
 Read [Create SSH Deploy Key](#%EF%B8%8F-create-ssh-deploy-key), create your SSH deploy key, and set the `deploy_key` option like the following.
 
@@ -226,10 +184,9 @@ Read [Create SSH Deploy Key](#%EF%B8%8F-create-ssh-deploy-key), create your SSH 
     publish_dir: ./public
 ```
 
-### ⭐️ `personal_token`
+### ⭐️ Set Personal Access Token `personal_token`
 
 [Generate a personal access token (`repo`)](https://github.com/settings/tokens) and add it to Secrets as `PERSONAL_TOKEN`, it works as well as `ACTIONS_DEPLOY_KEY`.
-
 
 ```yaml
 - name: Deploy
@@ -239,21 +196,22 @@ Read [Create SSH Deploy Key](#%EF%B8%8F-create-ssh-deploy-key), create your SSH 
     publish_dir: ./public
 ```
 
-### ⭐️ `publish_branch`
+### ⭐️ Set Another GitHub Pages Branch `publish_branch`
 
-A target branch to deploy to GitHub Pages. The default is `gh-pages`.
+Set a branch name to use as GitHub Pages branch.
+The default is `gh-pages`.
 
 ```yaml
 - name: Deploy
   uses: peaceiris/actions-gh-pages@v3
   with:
     github_token: ${{ secrets.GITHUB_TOKEN }}
-    publish_branch: master  # default: gh-pages
+    publish_branch: your-branch  # default: gh-pages
 ```
 
-### ⭐️ `publish_dir`
+### ⭐️ Source Directory `publish_dir`
 
-A target directory to deploy to GitHub Pages. The default is `public`.
+A source directory to deploy to GitHub Pages. The default is `public`.
 
 ```yaml
 - name: Deploy
@@ -263,7 +221,61 @@ A target directory to deploy to GitHub Pages. The default is `public`.
     publish_dir: ./out  # default: public
 ```
 
-### ⭐️ CNAME
+### ⭐️ Deploy to Subdirectory `destination_dir`
+
+*This feature is on beta.*
+*Any feedback is welcome at [Issue #324](https://github.com/peaceiris/actions-gh-pages/issues/324)*
+
+A destination subdirectory on a publishing branch. The default is empty.
+
+```yaml
+- name: Deploy
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    destination_dir: subdir
+```
+
+### ⭐️ Filter publishing assets `exclude_assets`
+
+*This feature is on beta.*
+*Any feedback is welcome at [Issue #163](https://github.com/peaceiris/actions-gh-pages/issues/163)*
+
+Set files or directories to exclude from publishing assets.
+The default is `.github`.
+Values should be split with a comma.
+
+```yaml
+- name: Deploy
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    exclude_assets: '.github,exclude-file1,exclude-file2'
+```
+
+Set `exclude_assets` to empty for including the `.github` directory to deployment assets.
+
+```yaml
+- name: Deploy
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}   # Recommended for this usage
+    # personal_token: ${{ secrets.PERSONAL_TOKEN }} # An alternative
+    # github_token: ${{ secrets.GITHUB_TOKEN }}     # This does not work for this usage
+    exclude_assets: ''
+```
+
+The `exclude_assets` option supports glob patterns.
+
+```yaml
+- name: Deploy
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    exclude_assets: '.github,exclude-file.txt,exclude-dir/**.txt'
+```
+
+### ⭐️ Add CNAME file `cname`
 
 To add `CNAME` file, we can set the `cname` option.
 
@@ -278,7 +290,7 @@ For more details about `CNAME`, read the official documentation: [Managing a cus
     cname: github.com
 ```
 
-### ⭐️ Enable Built-in Jekyll
+### ⭐️ Enable Built-in Jekyll `enable_jekyll`
 
 If you want GitHub Pages to process your site with the static site generator Jekyll, set `enable_jekyll` to true.
 
@@ -300,7 +312,7 @@ Bypassing Jekyll makes the deployment faster and is necessary if you are deployi
 
 For more details about `.nojekyll`: [Bypassing Jekyll on GitHub Pages - The GitHub Blog](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/)
 
-### ⭐️ Allow empty commits
+### ⭐️ Allow empty commits `allow_empty_commit`
 
 By default, a commit will not be generated when no file changes. If you want to allow an empty commit, set the optional parameter `allow_empty_commit` to `true`.
 
@@ -315,9 +327,14 @@ For example:
     allow_empty_commit: true
 ```
 
-### ⭐️ Keeping existing files
+### ⭐️ Keeping existing files `keep_files`
 
 By default, existing files in the publish branch are removed before adding the ones from publish dir. If you want the action to add new files but leave existing ones untouched, set the optional parameter `keep_files` to `true`.
+
+Note that users who are using a Static Site Generator do not need this option in most cases. Please reconsider your project structure and building scripts, or use a built-in feature of a Static Site Generator before you enable this flag.
+
+- [Static Files | Hugo](https://gohugo.io/content-management/static-files/)
+- [Using the Static Folder | Gatsby](https://www.gatsbyjs.com/docs/static-folder/)
 
 For example:
 
@@ -330,7 +347,10 @@ For example:
     keep_files: true
 ```
 
-### ⭐️ Deploy to external repository
+With the v3, this option does not support working with the force_orphan option. The next major release (version 4) will support this.
+See [the issue #455](https://github.com/peaceiris/actions-gh-pages/issues/455)
+
+### ⭐️ Deploy to external repository `external_repository`
 
 By default, your files are published to the repository which is running this action.
 If you want to publish to another repository on GitHub, set the environment variable `external_repository` to `<username>/<external-repository>`.
@@ -343,16 +363,23 @@ For example:
   with:
     deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
     external_repository: username/external-repository
-    publish_branch: master
+    publish_branch: your-branch  # default: gh-pages
     publish_dir: ./public
 ```
 
 You can use `deploy_key` or `personal_token`.
 When you use `deploy_key`, set your private key to the repository which includes this action and set your public key to your external repository.
 
-Be careful, `GITHUB_TOKEN` has no permission to access to external repositories.
+**Note that `GITHUB_TOKEN` has no permission to access to external repositories. Please create a personal access token and set it to `personal_token` like `personal_token: ${{ secrets.PERSONAL_TOKEN }}`.**
 
-### ⭐️ Force orphan
+Use case:
+
+A GitHub Free Plan account cannot use the GitHub Pages in a private repository. To make your source contents private and deploy it with the GitHub Pages, you can deploy your site from a private repository to a public repository using this option.
+
+- `peaceiris/homepage`: A private repository running this action with `external_repository: peaceiris/peaceiris.github.io`
+- `peaceiris/peaceiris.github.io`: A public repository using GitHub Pages
+
+### ⭐️ Force orphan `force_orphan`
 
 We can set the `force_orphan: true` option.
 This allows you to make your publish branch with only the latest commit.
@@ -421,7 +448,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
     tags:
       - 'v*.*.*'
 
@@ -453,7 +480,7 @@ jobs:
 Commands on a local machine.
 
 ```console
-$ # On the master branch
+$ # On a main branch
 $ git tag -a "v1.2.3" -m "Release v1.2.3"
 $ git push origin "v1.2.3"
 
@@ -461,7 +488,7 @@ $ # After deployment
 $ git fetch origin
 $ git tag
 deploy-v1.2.3  # Tag on the gh-pages branch
-v1.2.3         # Tag on the master branch
+v1.2.3         # Tag on the main branch
 ```
 
 <div align="right">
@@ -515,6 +542,50 @@ It is useful to watch this repository (release only) to check the [latest releas
 
 [latest release]: https://github.com/peaceiris/actions-gh-pages/releases
 
+For continuous updating, we can use the GitHub native Dependabot.
+Here is an example configuration of the bot. The config file is located in `.github/dependabot.yml`.
+
+```yaml
+version: 2
+updates:
+- package-ecosystem: "github-actions"
+  directory: "/"
+  schedule:
+    interval: "daily"
+  labels:
+  - "CI/CD"
+  commit-message:
+    prefix: ci
+```
+
+See the official documentation for more details about the Dependabot: [Keeping your dependencies updated automatically - GitHub Docs](https://docs.github.com/en/github/administering-a-repository/keeping-your-dependencies-updated-automatically)
+
+### ⭐️ Schedule and Manual Deployment
+
+For deploying regularly, we can set the `on.schedule` workflow trigger.
+See [Scheduled events | Events that trigger workflows - GitHub Docs](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#scheduled-events)
+
+For deploying manually, we can set the `on.workflow_dispatch` workflow trigger.
+See [Manual events `workflow_dispatch` | Events that trigger workflows - GitHub Docs](https://docs.github.com/en/actions/reference/events-that-trigger-workflows#manual-events)
+
+```yaml
+name: github pages
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "22 22 * * *"
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-18.04
+    steps:
+    ...
+```
+
 <div align="right">
 <a href="#table-of-contents">Back to TOC ☝️</a>
 </div>
@@ -525,13 +596,15 @@ It is useful to watch this repository (release only) to check the [latest releas
 
 ### ⭐️ Static Site Generators with Node.js
 
-[hexo], [gitbook], [vuepress], [react-static], [gridsome], and so on.
+[hexo], [vuepress], [react-static], [gridsome], [create-react-app] and so on.
+Please check where your output directory is before pushing your workflow.
+e.g. `create-react-app` requires `publish_dir` to be set to `./build`
 
 [hexo]: https://github.com/hexojs/hexo
-[gitbook]: https://github.com/GitbookIO/gitbook
 [vuepress]: https://github.com/vuejs/vuepress
 [react-static]: https://github.com/react-static/react-static
 [gridsome]: https://github.com/gridsome/gridsome
+[create-react-app]: https://github.com/facebook/create-react-app
 
 Premise: Dependencies are managed by `package.json` and `package-lock.json`
 
@@ -541,7 +614,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -550,12 +623,12 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '12.x'
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -585,7 +658,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -594,12 +667,12 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '12.x'
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -633,7 +706,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -642,7 +715,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '12.x'
 
@@ -651,14 +724,14 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: yarn build
       - run: yarn export
 
@@ -684,7 +757,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -693,12 +766,12 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '12.x'
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ~/.npm
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -730,7 +803,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
     paths:
       - '.github/workflows/deploy.yml'
       - 'website/**'
@@ -745,7 +818,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '12.x'
 
@@ -754,14 +827,14 @@ jobs:
         run: echo "::set-output name=dir::$(yarn cache dir)"
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ steps.yarn-cache.outputs.dir }}
           key: ${{ runner.os }}-website-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-website-
 
-      - run: yarn install
+      - run: yarn install --frozen-lockfile
       - run: yarn build
 
       - name: Deploy
@@ -787,7 +860,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -810,7 +883,7 @@ jobs:
         run: echo "::set-output name=dir::$(pip cache dir)"
 
       - name: Cache dependencies
-        uses: actions/cache@v1
+        uses: actions/cache@v2
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
@@ -843,7 +916,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -878,7 +951,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -889,7 +962,7 @@ jobs:
       - name: Setup Flutter
         run: |
           git clone https://github.com/flutter/flutter.git --depth 1 -b beta _flutter
-          echo "::add-path::${GITHUB_WORKSPACE}/_flutter/bin"
+          echo "${GITHUB_WORKSPACE}/_flutter/bin" >> ${GITHUB_PATH}
 
       - name: Install
         run: |
@@ -908,7 +981,7 @@ jobs:
 
 ### ⭐️ Elm
 
-An exapmle workflow for [Elm].
+An example workflow for [Elm].
 
 [Elm]: https://elm-lang.org
 
@@ -918,7 +991,7 @@ name: github pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -927,7 +1000,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup Node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.2
         with:
           node-version: '12.x'
 
@@ -994,21 +1067,33 @@ name: GitHub Pages
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
-    runs-on: ubuntu-18.04
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
+
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/Publish_build
+            .build
+          key: ${{ runner.os }}-spm-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-spm-
 
       - name: Setup JohnSundell/Publish
         run: |
           cd ${HOME}
-          git clone --depth=1 https://github.com/JohnSundell/Publish.git
-          cd ./Publish
+          export PUBLISH_VERSION="0.7.0"
+          git clone https://github.com/JohnSundell/Publish.git
+          cd ./Publish && git checkout ${PUBLISH_VERSION}
+          mv ~/Publish_build .build || true
           swift build -c release
-          echo "::add-path::${HOME}/Publish/.build/release"
+          cp -r .build ~/Publish_build || true
+          echo "${HOME}/Publish/.build/release" >> ${GITHUB_PATH}
 
       - run: publish-cli generate
 
@@ -1029,7 +1114,7 @@ jobs:
 
 - [MIT License - peaceiris/actions-gh-pages]
 
-[MIT License - peaceiris/actions-gh-pages]: https://github.com/peaceiris/actions-gh-pages/blob/master/LICENSE
+[MIT License - peaceiris/actions-gh-pages]: https://github.com/peaceiris/actions-gh-pages/blob/main/LICENSE
 
 
 
