@@ -24,6 +24,11 @@ The next example step will deploy `./public` directory to the remote `gh-pages` 
     publish_dir: ./public
 ```
 
+For newbies of GitHub Actions:
+Note that the `GITHUB_TOKEN` is **NOT** a personal access token.
+A GitHub Actions runner automatically creates a `GITHUB_TOKEN` secret to authenticate in your workflow.
+So, you can start to deploy immediately without any configuration.
+
 ### Supported Tokens
 
 Three tokens are supported.
@@ -58,7 +63,6 @@ All Actions runners: Linux (Ubuntu), macOS, and Windows are supported.
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 
 - [Getting started](#getting-started)
 - [Options](#options)
@@ -132,7 +136,7 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: '0.74.3'
+          hugo-version: '0.79.1'
 
       - name: Build
         run: hugo --minify
@@ -160,7 +164,7 @@ jobs:
 
 **This option is for `GITHUB_TOKEN`, not a personal access token.**
 
-GitHub Actions runner automatically creates a `GITHUB_TOKEN` secret to use in your workflow. You can use the `GITHUB_TOKEN` to authenticate in a workflow run.
+A GitHub Actions runner automatically creates a `GITHUB_TOKEN` secret to use in your workflow. You can use the `GITHUB_TOKEN` to authenticate in a workflow run.
 
 ```yaml
 - name: Deploy
@@ -329,7 +333,7 @@ For example:
 
 ### ⭐️ Keeping existing files `keep_files`
 
-By default, existing files in the publish branch are removed before adding the ones from publish dir. If you want the action to add new files but leave existing ones untouched, set the optional parameter `keep_files` to `true`.
+By default, existing files in the publish branch (or only in `destination_dir` if given) will be removed. If you want the action to add new files but leave existing ones untouched, set the optional parameter `keep_files` to `true`.
 
 Note that users who are using a Static Site Generator do not need this option in most cases. Please reconsider your project structure and building scripts, or use a built-in feature of a Static Site Generator before you enable this flag.
 
@@ -927,7 +931,7 @@ jobs:
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v1
         with:
-          mdbook-version: '0.3.7'
+          mdbook-version: '0.4.5'
           # mdbook-version: 'latest'
 
       - run: mdbook build
